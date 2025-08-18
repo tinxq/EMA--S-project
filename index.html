@@ -253,6 +253,7 @@
     }
     
     function showFinalResult() {
+        document.getElementById("nextBtn").classList.add("hidden");    
     const quizDiv = document.getElementById("quiz");
     quizDiv.innerHTML = "";
     const messageDiv = document.getElementById("message");
@@ -271,10 +272,7 @@
         // If student passes this level, update finalLevel
         if (correct >= passThreshold) {
             finalLevel = level;
-        } else {
-            // stop at first fail
-            break;
-        }
+        } 
     }
 
     html += `<p><strong>Final Level:</strong> ${finalLevel}</p>`;
