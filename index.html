@@ -141,140 +141,159 @@
         <p>WhatsApp: <a href="https://wa.me/09999999" target="_blank">+966500000000</a></p>
     </section>
 </div>
-
 <script>
-function startQuiz() {
-    document.getElementById("homePage").classList.add("hidden");
-    document.getElementById("quizPage").classList.remove("hidden");
-    loadLevel();
-}
-function showHome() {
-    document.getElementById("quizPage").classList.add("hidden");
-    document.getElementById("homePage").classList.remove("hidden");
-}
-const levels = ["Pre1", "A1", "A2", "B1", "B2"];
-let currentLevel = 0;
-const questions = {
-    "Pre1": [
-        { q: "What the color of this?", img: "photos/orange.png", options: ["Green", "Yellow", "Orange"], answer: "Orange" },
-        { q: "", img: "photos/sarah.jpg", options:["She name is Sarah", "Her name is Sarah.", "His name is Sarah."], answer: "Her name is Sarah." },
-        { q: "The apple's color is......<br>The grape's color is.......<br>These are.........", img: "photos/fru.png", options: ["Red, purple , vegetables", "Orange, purple , fruits", "Red, purple , fruits."], answer: "Red, purple , fruits." },
-        { q: "This is a.....",img: "photos/hospital.png", options: ["Hospital", "School", "House"], answer: "Hospital" },
-        { q: "The meaning of this word is:", img: "photos/teacher.JPG", options: ["The person who teaches people.", "The person who heal people", "The person who cook for people"], answer: "The person who teaches people." }
-    ],
-    "A1": [
-        { q: "What is the date", img: "photos/17may.png", options: ["May seventeenth", "Seventeen May", "May seventeen"], answer: "May seventeenth" },
-        { q: "What's the right answer to this question? <br>What do you do?", img: "", options: ["I'm fine thank you", "I'm a doctor", "It's a big car"], answer: "I'm a doctor" },
-        { q: "Put the right word to complete the sentence.<br>I like him, he always Says yes to his mum, he is a............ Boy.", img: "", options: ["Naughty", "Beautiful", "Good"], answer: "Good" },
-        { q: "She is.......",img:"photos/hungery.PNG" ,options: ["Hungry", "Angry", "Food"], answer: "Hungry" },
-        { q: "Sam Always............. In the park at this time of the day.", img:"photos/walking.png" , options: ["Walking", "Walks", "Walk"], answer: "Walks" }
-    ],
-    "A2": [
-        { q: "Dear John.What a day!!!It's started with me feeling a bit sick, but yet I went to work, but I found out I got fired from my work, I went back home and there's no food in my fridge, so here I'm sitting in my couch trying to understand My day.From. Ema.<br>How was Ema's day?", options: ["Outstanding", "Horrible", "Lovely"], answer: "Horrible" },
-        { q: "Which sentence is correct", options: ["ema spent last vacation in London", "Ema spend last vacation in London", "Ema spent last vacation in London"], answer: "Ema spent last vacation in London" },
-        { q: "While you are standing next to the school, across from the sports centre, someone asks you how to get to Shop Road.Which of the following directions would be correct to guide them there?", img:"photos/map2.jpg", imgClass:"map-img", options: ["Take Flower Road north until you get to Plant Road, then turn left. Shop Road is straight ahead after the bus stop.", "Go up Park Street until you reach Market Road, then turn left. Shop Road will be on your right.", "Walk along School Road until you reach Tree Street, then turn right. Keep going past the playground and you’ll see Shop Road ahead on your left"], answer: "Walk along School Road until you reach Tree Street, then turn right. Keep going past the playground and you’ll see Shop Road ahead on your left" },
-        { q: "Watch out! The car......", audio: "", options: ["Came", " Come", "Is coming"], answer: "Is coming" },
-        { q: "What was the man's job?", audio: "photos/A2-1.mp3", options: ["Journalist", "Writer", "Postman"], answer: "Postman" }
-    ],
-    "B1": [
-        { q: "How can you describe William's personality?", audio: "photos/B1-1.mp3", options: ["Reliable and obliging", "courageous and stingy", "Self-centered"], answer: "" },
-        { q: "There's a lot of work yesterday, my team couldn't handle it, we've tried so hard but we just wasted our energy and our time, so the other team offered to help us, that was so nice of them, so we collaborated together and finally the work is done before the deadline.<br>What's the meaning of collaboration?", options: ["Having both time and energy.", "Asking for help from others", "Working together to do something."], answer: "Working together to do something." },
-        { q: "She.......... In Paris before.", options: ["Has been", "Was", "Had been"], answer: "Has been" },
-        { q: "What period of time she is talking about?",  audio: "photos/B1-2.mp3",options: ["Teenage", "Adulthood", "Childhood"], answer: "Childhood" },
-        { q: "I...........  be there at 07:00 , I planned this.", options: ["Will", "am going to", "May"], answer: "am going to" }
-    ],
-    "B2": [
-        { q: "How does he feel about where he grew up now?", audio: "photos/B2-1.mp3", options: ["Enthusiasm", "Boredom", "Frustration"], answer: "Frustration" },
-        { q: "She felt like she was unstable, that she was lost and very sad, insomnia was making her nights sleepless, and days wasn't better , she spent her day and night over thinking everything , recently her thoughts had become more gloomy and she thought that she should ask for help. From whom should she ask for help?", options: ["Vet", "psychologist", "Neurologist"], answer: "psychologist" },
-        { q: "Many companies today are becoming more cognizant of the environmental impact of their operations. This awareness has led to more sustainable practices and greener policies.What does the word 'cognizant' mean in the context of the passage?",  options: ["Indifferent", "Aware", "Negligent"], answer: "Aware" },
-        { q: "What's the meaning of self - conscious?", audio: "photos/B2-2.mp3", options: ["Feeling awkward and shy", "Being confident", "It's part of your mind that's controls actions"], answer: "Feeling awkward and shy" },
-        { q: "Sarah has always had a passion for the arts. She spends her weekends visiting galleries and attending live performances. Her friends often describe her as someone with a keen aesthetic sense.<br>What can we infer about Sarah’s personality?", options: ["She is uninterested in creative activities.", "She prefers outdoor sports over cultural events.", "She has an appreciation for aesthetics and culture."], answer: "She has an appreciation for aesthetics and culture." }
-    ],
-};
-function loadLevel() {
-    const quizDiv = document.getElementById("quiz");
-    document.getElementById("message").classList.add("hidden");
-    quizDiv.innerHTML = `<h2>Level: ${levels[currentLevel]}</h2>`;
-    questions[levels[currentLevel]].forEach((item, index) => {
-        let html = `<div class="question-card">`;
-        html += `<div class="question-text">${index + 1}. ${item.q || ""}</div>`;
-        if(item.img) html += `<img src="${item.img}" alt="" class="${item.imgClass || ''}">`;
-        if(item.audio) html += `<audio controls src="${item.audio}"></audio>`;
-        item.options.forEach(opt => {
-            html += `<label class="option"><input type="radio" name="q${index}" value="${opt}"> ${opt}</label>`;
+    function startQuiz() {
+        document.getElementById("homePage").classList.add("hidden");
+        document.getElementById("quizPage").classList.remove("hidden");
+        loadLevel();
+    }
+    
+    function showHome() {
+        document.getElementById("quizPage").classList.add("hidden");
+        document.getElementById("homePage").classList.remove("hidden");
+    }
+    
+    const levels = [ "Pre1", "A1", "A2", "B1", "B2"];
+    let currentLevel = 0;
+    let scores = {}; // store correct answers per level
+    const passThreshold = 4; // minimum correct answers to pass a level
+    
+    const questions = {
+       "Pre1": [
+            { q: "What the color of this?", img: "photos/orange.png", options: ["Green", "Yellow", "Orange"], answer: "Orange" },
+            { q: "", img: "photos/sarah.jpg", options:["She name is Sarah", "Her name is Sarah.", "His name is Sarah."], answer: "Her name is Sarah." },
+            { q: "The apple's color is......<br>The grape's color is.......<br>These are.........", img: "photos/fru.png", options: ["Red, purple , vegetables", "Orange, purple , fruits", "Red, purple , fruits."], answer: "Red, purple , fruits." },
+            { q: "This is a.....",img: "photos/hospital.png", options: ["Hospital", "School", "House"], answer: "Hospital" },
+            { q: "The meaning of this word is:", img: "photos/teacher.JPG", options: ["The person who teaches people.", "The person who heal people", "The person who cook for people"], answer: "The person who teaches people." }
+        ],
+        "A1": [
+            { q: "What is the date", img: "photos/17may.png", options: ["May seventeenth", "Seventeen May", "May seventeen"], answer: "May seventeenth" },
+            { q: "What's the right answer to this question? <br>What do you do?", options: ["I'm fine thank you", "I am a doctor", "It's a big car"], answer: "I am a doctor" },
+            { q: "Put the right word to complete the sentence.<br>I like him, he always Says yes to his mum, he is a............ Boy.", options: ["Naughty", "Beautiful", "Good"], answer: "Good" },
+            { q: "She is.......",img:"photos/hungery.PNG" ,options: ["Hungry", "Angry", "Food"], answer: "Hungry" },
+            { q: "Sam Always............. In the park at this time of the day.", img:"photos/walking.png" , options: ["Walking", "Walks", "Walk"], answer: "Walks" }
+        ],
+        "A2": [
+            { q: "Dear John... How was Ema's day?", options: ["Outstanding", "Horrible", "Lovely"], answer: "Horrible" },
+            { q: "Which sentence is correct", options: ["ema spent last vacation in London", "Ema spend last vacation in London", "Ema spent last vacation in London"], answer: "Ema spent last vacation in London" },
+            { q: "While you are standing next to the school...", img:"photos/map2.jpg", imgClass:"map-img", options: ["Take Flower Road north...", "Go up Park Street...", "Walk along School Road until..."], answer: "Walk along School Road until you reach Tree Street, then turn right. Keep going past the playground and you’ll see Shop Road ahead on your left" },
+            { q: "Watch out! The car......", options: ["Came", " Come", "Is coming"], answer: "Is coming" },
+            { q: "What was the man's job?", audio: "photos/A2-1.mp3", options: ["Journalist", "Writer", "Postman"], answer: "Postman" }
+        ],
+        "B1": [
+            { q: "How can you describe William's personality?", audio: "photos/B1-1.mp3", options: ["Reliable and obliging", "courageous and stingy", "Self-centered"], answer: "Reliable and obliging" },
+            { q: "What's the meaning of collaboration?", options: ["Having both time and energy.", "Asking for help from others", "Working together to do something."], answer: "Working together to do something." },
+            { q: "She.......... In Paris before.", options: ["Has been", "Was", "Had been"], answer: "Has been" },
+            { q: "What period of time she is talking about?",  audio: "photos/B1-2.mp3",options: ["Teenage", "Adulthood", "Childhood"], answer: "Childhood" },
+            { q: "I...........  be there at 07:00 , I planned this.", options: ["Will", "am going to", "May"], answer: "am going to" }
+        ],
+        "B2": [
+            { q: "How does he feel about where he grew up now?", audio: "photos/B2-1.mp3", options: ["Enthusiasm", "Boredom", "Frustration"], answer: "Frustration" },
+            { q: "From whom should she ask for help?", options: ["Vet", "psychologist", "Neurologist"], answer: "psychologist" },
+            { q: "What does 'cognizant' mean?",  options: ["Indifferent", "Aware", "Negligent"], answer: "Aware" },
+            { q: "What's the meaning of self - conscious?", audio: "photos/B2-2.mp3", options: ["Feeling awkward and shy", "Being confident", "It's part of your mind that's controls actions"], answer: "Feeling awkward and shy" },
+            { q: "What can we infer about Sarah’s personality?", options: ["She is uninterested in creative activities.", "She prefers outdoor sports", "She has an appreciation for aesthetics and culture."], answer: "She has an appreciation for aesthetics and culture." }
+        ]};
+    
+    function loadLevel() {
+        const quizDiv = document.getElementById("quiz");
+        quizDiv.innerHTML = `<h2>Level: ${levels[currentLevel]}</h2>`;
+    
+        questions[levels[currentLevel]].forEach((item, index) => {
+            let html = `<div class="question-card">`;
+            html += `<div class="question-text">${index + 1}. ${item.q || ""}</div>`;
+            if(item.img) html += `<img src="${item.img}" alt="" class="${item.imgClass || ''}">`;
+            if(item.audio) html += `<audio controls src="${item.audio}"></audio>`;
+            item.options.forEach(opt => {
+                html += `<label class="option"><input type="radio" name="q${index}" value="${opt}" onchange="checkAnswer(${index}, '${opt}')"> ${opt}</label>`;
+            });
+            html += `<div class="feedback" id="feedback${index}" style="margin-top:5px;font-weight:bold;"></div>`;
+            html += `</div>`;
+            quizDiv.innerHTML += html;
         });
-        html += `</div>`;
-        quizDiv.innerHTML += html;
-    });
-    quizDiv.innerHTML += `<button onclick="checkAnswers()">Check Answers</button>`;
-}
-function checkAnswers() {
-    let correct = 0;
-    questions[levels[currentLevel]].forEach((item, index) => {
-        const selected = document.querySelector(`input[name="q${index}"]:checked`);
-        const questionCard = document.querySelectorAll(".question-card")[index];
-        
-        const oldFeedback = questionCard.querySelector(".feedback");
-        if (oldFeedback) oldFeedback.remove();
-
-        let feedback = document.createElement("div");
-        feedback.classList.add("feedback");
-        feedback.style.marginTop = "10px";
-        feedback.style.padding = "8px";
-        feedback.style.borderRadius = "8px";
-        feedback.style.fontWeight = "bold";
-
-        if (selected && selected.value === item.answer) {
-            correct++;
-            feedback.textContent = "✔ الإجابة صحيحة";
-            feedback.style.backgroundColor = "#c8e6c9";
-            feedback.style.color = "#2e7d32";
+    
+        document.getElementById("nextBtn").classList.remove("hidden");
+    }
+    
+    function checkAnswer(index, selected) {
+        const item = questions[levels[currentLevel]][index];
+        const feedback = document.getElementById(`feedback${index}`);
+        if(selected === item.answer) {
+            feedback.textContent = "✔ Correct";
+            feedback.style.color = "green";
+            scores[levels[currentLevel]] = scores[levels[currentLevel]] || 0;
+            // increase score only once
+            if(!feedback.dataset.correct) {
+                scores[levels[currentLevel]]++;
+                feedback.dataset.correct = "true";
+            }
         } else {
-            feedback.textContent = `❌ الإجابة خاطئة — الصحيحة هي: ${item.answer}`;
-            feedback.style.backgroundColor = "#ffcdd2";
-            feedback.style.color = "#b71c1c";
+            feedback.textContent = `❌ Wrong — correct: ${item.answer}`;
+            feedback.style.color = "red";
         }
-
-        questionCard.appendChild(feedback);
-    });
-
+    
+        // check if all questions answered
+        const allAnswered = questions[levels[currentLevel]].every((_, i) => {
+            const f = document.getElementById(`feedback${i}`);
+            return f.textContent !== "";
+        });
+    
+        //if(allAnswered) {
+        // document.getElementById("nextBtn").classList.remove("hidden");
+       // }
+    }
+    
+    function nextLevel() {
+        currentLevel++;
+        if(currentLevel < levels.length) {
+            loadLevel();
+        } else {
+            showFinalResult();
+        }
+    }
+    
+    function showFinalResult() {
+    const quizDiv = document.getElementById("quiz");
+    quizDiv.innerHTML = "";
     const messageDiv = document.getElementById("message");
     messageDiv.classList.remove("hidden");
 
-    if (correct >= 4) {
-        messageDiv.textContent = `✅ Passed the level ${levels[currentLevel]}`;
-        messageDiv.className = "message success";
-        document.getElementById("nextBtn").classList.remove("hidden");
-    } else {
-        messageDiv.textContent = `❌ Your level is: ${levels[currentLevel]}`;
-        messageDiv.className = "message fail";
-        document.getElementById("nextBtn").classList.add("hidden");
-    }
-}
-function nextLevel() {
-    currentLevel++;
-    if(currentLevel < levels.length) {
-        loadLevel();
-        document.getElementById("nextBtn").classList.add("hidden");
-    } else {
-        const messageDiv = document.getElementById("message");
-        messageDiv.textContent = "🎉 You passed all the levels!";
-        messageDiv.className = "message success";
-        messageDiv.classList.remove("hidden");
-    }
-}
-let prevScrollPos = window.scrollY;
-const header = document.getElementById("main-header");
-window.addEventListener("scroll", function () {
-    const currScrollPos = window.scrollY;
-    if (prevScrollPos > currScrollPos) {
-        header.style.transform = "translateY(0)";
-    } else {
-        header.style.transform = "translateY(-200px)";
-    }
-    prevScrollPos = currScrollPos;
-});
-</script>
+    let html = "<h2>Test Results</h2>";
+    let finalLevel = "Pre0"; // default if student fails Pre1
 
+    // Loop through levels in order
+    for (let i = 0; i < levels.length; i++) {
+        const level = levels[i];
+        const numQs = questions[level].length;
+        const correct = scores[level] || 0;
+        html += `<p><strong>${level}:</strong> ${correct} / ${numQs}</p>`;
+
+        // If student passes this level, update finalLevel
+        if (correct >= passThreshold) {
+            finalLevel = level;
+        } else {
+            // stop at first fail
+            break;
+        }
+    }
+
+    html += `<p><strong>Final Level:</strong> ${finalLevel}</p>`;
+    messageDiv.innerHTML = html;
+}
+    // Header scroll effect (kept from your original code)
+    let prevScrollPos = window.scrollY;
+    const header = document.getElementById("main-header");
+    window.addEventListener("scroll", function () {
+        const currScrollPos = window.scrollY;
+        if (prevScrollPos > currScrollPos) {
+            header.style.transform = "translateY(0)";
+        } else {
+            header.style.transform = "translateY(-200px)";
+        }
+        prevScrollPos = currScrollPos;
+    });
+    </script>
+    
+    
 </body>
 </html>
