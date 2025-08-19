@@ -270,44 +270,60 @@
         }
     }
     
-    function showFinalResult() {
-        document.getElementById("nextBtn").classList.add("hidden");    
-    const quizDiv = document.getElementById("quiz");
-    quizDiv.innerHTML = "";
-    const messageDiv = document.getElementById("message");
-    messageDiv.classList.remove("hidden");
+    const levelInfo = {
+            "Pre1": { img: "", msg: "" },
+            "A1": { img: "", msg: "" },
+            "A2": { img: "", msg: "" },
+            "B1": { img: "", msg: "" },
+            "B2": { img: "", msg: "" },
+            "Pre0": { img: "photos/ema1.png", msg: "sorry but u are dumb"}
+        };
 
-    let html = "<h2>Test Results</h2>";
-    let finalLevel = "Pre0"; // default if student fails Pre1
+        function showFinalResult() {
+            document.getElementById("nextBtn").classList.add("hidden");    
+            const quizDiv = document.getElementById("quiz");
+            quizDiv.innerHTML = "";
+            const messageDiv = document.getElementById("message");
+            messageDiv.classList.remove("hidden");
 
-    // Loop through levels in order
-    for (let i = 0; i < levels.length; i++) {
-        const level = levels[i];
-        const numQs = questions[level].length;
-        const correct = scores[level] || 0;
-        html += `<p><strong>${level}:</strong> ${correct} / ${numQs}</p>`;
+            let html = "<h2>Your Results</h2>";
+            let finalLevel = "Pre0";
 
-        // If student passes this level, update finalLevel
-        if (correct >= passThreshold) {
-            finalLevel = level;
-        } 
-    }
+            for (let i = 0; i < levels.length; i++) {
+                const level = levels[i];
+                const numQs = questions[level].length;
+                const correct = scores[level] || 0;
+                html += `<p><strong>${level}:</strong> ${correct} / ${numQs}</p>`;
 
-    html += `<p><strong>Final Level:</strong> ${finalLevel}</p>`;
-    messageDiv.innerHTML = html;
-}
-    // Header scroll effect (kept from your original code)
-    let prevScrollPos = window.scrollY;
-    const header = document.getElementById("main-header");
-    window.addEventListener("scroll", function () {
-        const currScrollPos = window.scrollY;
-        if (prevScrollPos > currScrollPos) {
-            header.style.transform = "translateY(0)";
-        } else {
-            header.style.transform = "translateY(-200px)";
+                if (correct >= passThreshold) {
+                    finalLevel = level;
+                }
+            }
+
+            const info = levelInfo[finalLevel];
+            html += `
+                <div style="margin-top:20px; text-align:center;">
+                    <h3>Your Level: ${finalLevel}</h3>
+                    <img src="${info.img}" alt="${finalLevel}" style="max-width:200px; display:block; margin:10px auto;">
+                    <p>${info.msg}</p>
+                </div>
+            `;
+
+            messageDiv.innerHTML = html;
         }
-        prevScrollPos = currScrollPos;
-    });
+
+        // Scroll effect
+        let prevScrollPos = window.scrollY;
+        const header = document.getElementById("main-header");
+        window.addEventListener("scroll", function () {
+            const currScrollPos = window.scrollY;
+            if (prevScrollPos > currScrollPos) {
+                header.style.transform = "translateY(0)";
+            } else {
+                header.style.transform = "translateY(-200px)";
+            }
+            prevScrollPos = currScrollPos;
+        });
     </script>
     
     
