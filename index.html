@@ -177,41 +177,41 @@
     const passThreshold = 4; // minimum correct answers to pass a level
     
     const questions = {
-       "Pre1": [
-            { q: "What the color of this?", img: "photos/orange.png", options: ["Green", "Yellow", "Orange"], answer: "Orange" },
-            { q: "", img: "photos/sarah.jpg", options:["She name is Sarah", "Her name is Sarah.", "His name is Sarah."], answer: "Her name is Sarah." },
-            { q: "The apple's color is......<br>The grape's color is.......<br>These are.........", img: "photos/fru.png", options: ["Red, purple , vegetables", "Orange, purple , fruits", "Red, purple , fruits."], answer: "Red, purple , fruits." },
-            { q: "This is a.....",img: "photos/hospital.png", options: ["Hospital", "School", "House"], answer: "Hospital" },
-            { q: "The meaning of this word is:", img: "photos/teacher.JPG", options: ["The person who teaches people.", "The person who heal people", "The person who cook for people"], answer: "The person who teaches people." }
-        ],
-        "A1": [
-            { q: "What is the date", img: "photos/17may.png", options: ["May seventeenth", "Seventeen May", "May seventeen"], answer: "May seventeenth" },
-            { q: "What's the right answer to this question? <br>What do you do?", options: ["I'm fine thank you", "I am a doctor", "It's a big car"], answer: "I am a doctor" },
-            { q: "Put the right word to complete the sentence.<br>I like him, he always Says yes to his mum, he is a............ Boy.", options: ["Naughty", "Beautiful", "Good"], answer: "Good" },
-            { q: "She is.......",img:"photos/hungery.PNG" ,options: ["Hungry", "Angry", "Food"], answer: "Hungry" },
-            { q: "Sam Always............. In the park at this time of the day.", img:"photos/walking.png" , options: ["Walking", "Walks", "Walk"], answer: "Walks" }
-        ],
-        "A2": [
-            { q: "Dear John... How was Ema's day?", options: ["Outstanding", "Horrible", "Lovely"], answer: "Horrible" },
-            { q: "Which sentence is correct", options: ["ema spent last vacation in London", "Ema spend last vacation in London", "Ema spent last vacation in London"], answer: "Ema spent last vacation in London" },
-            { q: "While you are standing next to the school...", img:"photos/map2.jpg", imgClass:"map-img", options: ["Take Flower Road north...", "Go up Park Street...", "Walk along School Road until..."], answer: "Walk along School Road until you reach Tree Street, then turn right. Keep going past the playground and you’ll see Shop Road ahead on your left" },
-            { q: "Watch out! The car......", options: ["Came", " Come", "Is coming"], answer: "Is coming" },
-            { q: "What was the man's job?", audio: "photos/A2-1.mp3", options: ["Journalist", "Writer", "Postman"], answer: "Postman" }
-        ],
-        "B1": [
-            { q: "How can you describe William's personality?", audio: "photos/B1-1.mp3", options: ["Reliable and obliging", "courageous and stingy", "Self-centered"], answer: "Reliable and obliging" },
-            { q: "What's the meaning of collaboration?", options: ["Having both time and energy.", "Asking for help from others", "Working together to do something."], answer: "Working together to do something." },
-            { q: "She.......... In Paris before.", options: ["Has been", "Was", "Had been"], answer: "Has been" },
-            { q: "What period of time she is talking about?",  audio: "photos/B1-2.mp3",options: ["Teenage", "Adulthood", "Childhood"], answer: "Childhood" },
-            { q: "I...........  be there at 07:00 , I planned this.", options: ["Will", "am going to", "May"], answer: "am going to" }
-        ],
-        "B2": [
-            { q: "How does he feel about where he grew up now?", audio: "photos/B2-1.mp3", options: ["Enthusiasm", "Boredom", "Frustration"], answer: "Frustration" },
-            { q: "From whom should she ask for help?", options: ["Vet", "psychologist", "Neurologist"], answer: "psychologist" },
-            { q: "What does 'cognizant' mean?",  options: ["Indifferent", "Aware", "Negligent"], answer: "Aware" },
-            { q: "What's the meaning of self - conscious?", audio: "photos/B2-2.mp3", options: ["Feeling awkward and shy", "Being confident", "It's part of your mind that's controls actions"], answer: "Feeling awkward and shy" },
-            { q: "What can we infer about Sarah’s personality?", options: ["She is uninterested in creative activities.", "She prefers outdoor sports", "She has an appreciation for aesthetics and culture."], answer: "She has an appreciation for aesthetics and culture." }
-        ]};
+        "Pre1": [
+        { q: "What the color of this?", img: "photos/orange.png", options: ["Green", "Yellow", "Orange"], answer: "Orange" },
+        { q: "", img: "photos/sarah.jpg", options:["She name is Sarah", "Her name is Sarah.", "His name is Sarah."], answer: "Her name is Sarah." },
+        { q: "The apple's color is......<br>The grape's color is.......<br>These are.........", img: "photos/fru.png", options: ["Red, purple , vegetables", "Orange, purple , fruits", "Red, purple , fruits."], answer: "Red, purple , fruits." },
+        { q: "This is a.....",img: "photos/hospital.png", options: ["Hospital", "School", "House"], answer: "Hospital" },
+        { q: "The meaning of this word is:", img: "photos/teacher.JPG", options: ["The person who teaches people.", "The person who heal people", "The person who cook for people"], answer: "The person who teaches people." }
+    ],
+    "A1": [
+        { q: "What is the date", img: "photos/17may.png", options: ["May seventeenth", "Seventeen May", "May seventeen"], answer: "May seventeenth" },
+        { q: "What's the right answer to this question? <br>What do you do?", img: "", options: ["I am fine thank you", "I am a doctor", "It is a big car"], answer: "I am a doctor" },
+        { q: "Put the right word to complete the sentence.<br>I like him, he always Says yes to his mum, he is a............ Boy.", img: "", options: ["Naughty", "Beautiful", "Good"], answer: "Good" },
+        { q: "She is.......",img:"photos/hungery.PNG" ,options: ["Hungry", "Angry", "Food"], answer: "Hungry" },
+        { q: "Sam Always............. In the park at this time of the day.", img:"photos/walking.png" , options: ["Walking", "Walks", "Walk"], answer: "Walks" }
+    ],
+    "A2": [
+        { q: "Dear John.What a day!!!It's started with me feeling a bit sick, but yet I went to work, but I found out I got fired from my work, I went back home and there's no food in my fridge, so here I'm sitting in my couch trying to understand My day.From. Ema.<br>How was Ema's day?", options: ["Outstanding", "Horrible", "Lovely"], answer: "Horrible" },
+        { q: "Which sentence is correct", options: ["ema spent last vacation in London", "Ema spend last vacation in London", "Ema spent last vacation in London"], answer: "Ema spent last vacation in London" },
+        { q: "While you are standing next to the school, across from Jim's house, someone asks you how to get to Shop Road.Which of the following directions would be correct to guide them there?", img:"photos/map2.jpg", imgClass:"map-img", options: ["Take Flower Road north until you get to Plant Road, then turn left. Shop Road is straight ahead after the bus stop.", "Go up Park Street until you reach Market Road, then turn left. Shop Road will be on your right.", "Walk along School Road until you reach Tree Street, then turn right. Keep going past the playground and you’ll see Shop Road ahead on your left"], answer: "Walk along School Road until you reach Tree Street, then turn right. Keep going past the playground and you’ll see Shop Road ahead on your left" },
+        { q: "Watch out! The car......", audio: "", options: ["Came", " Come", "Is coming"], answer: "Is coming" },
+        { q: "Why she doesn't like frozen meals?", audio: "photos/A2.mp3", options: ["Not very healthy", "Because it is a pre-made food", "The taste is not really fresh"], answer: "The taste is not really fresh" }
+    ],
+    "B1": [
+        { q: "How can you describe William's personality?", audio: "photos/B1-1.mp3", options: ["Reliable and obliging", "courageous and stingy", "Self-centered"], answer: "Reliable and obliging" },
+        { q: "There's a lot of work yesterday, my team couldn't handle it, we've tried so hard but we just wasted our energy and our time, so the other team offered to help us, that was so nice of them, so we collaborated together and finally the work is done before the deadline.<br>What's the meaning of collaboration?", options: ["Having both time and energy.", "Asking for help from others", "Working together to do something."], answer: "Working together to do something." },
+        { q: "She.......... In Paris before.", options: ["Has been", "Was", "Had been"], answer: "Has been" },
+        { q: "Why doesn't she like the idea of the 'Yankees' being more popular?",  audio: "photos/B1-2.mp3",options: ["Because she's not a fan", "Because teams play at different stadium", "Because her family are  Mets fans"], answer: "Because her family are  Mets fans" },
+        { q: "I...........  be there at 07:00 , I planned this.", options: ["Will", "am going to", "May"], answer: "am going to" }
+    ],
+    "B2": [
+        { q: "How does he feel about where he grew up now?", audio: "photos/B2-1.mp3", options: ["Enthusiasm", "Boredom", "Frustration"], answer: "Frustration" },
+        { q: "She felt like she was unstable, that she was lost and very sad, insomnia was making her nights sleepless, and days wasn't better , she spent her day and night over thinking everything , recently her thoughts had become more gloomy and she thought that she should ask for help. From whom should she ask for help?", options: ["Vet", "psychologist", "Neurologist"], answer: "psychologist" },
+        { q: "Many companies today are becoming more cognizant of the environmental impact of their operations. This awareness has led to more sustainable practices and greener policies.What does the word 'cognizant' mean in the context of the passage?",  options: ["Indifferent", "Aware", "Negligent"], answer: "Aware" },
+        { q: "What's the meaning of self - conscious?", audio: "photos/B2-2.mp3", options: ["Feeling awkward and shy", "Being confident", "It's part of your mind that's controls actions"], answer: "Feeling awkward and shy" },
+        { q: "Sarah has always had a passion for the arts. She spends her weekends visiting galleries and attending live performances. Her friends often describe her as someone with a keen aesthetic sense.<br>What can we infer about Sarah’s personality?", options: ["She is uninterested in creative activities.", "She prefers outdoor sports over cultural events.", "She has an appreciation for aesthetics and culture."], answer: "She has an appreciation for aesthetics and culture." }
+    ],};
     
     function loadLevel() {
         const quizDiv = document.getElementById("quiz");
