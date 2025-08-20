@@ -66,30 +66,28 @@
     align-items: center;
     justify-content: space-between;
     background: #fff;
-    border-radius: 15px;
+    border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    margin: 30px auto;
-    padding: 25px;
-    gap: 25px;
-    max-width: 950px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 1000px;
+    gap: 20px;
+    transition: 0.3s ease-in-out;
 }
 
-.us-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-}
-
+/* عكس الترتيب */
 .us-card.reverse {
     flex-direction: row-reverse;
 }
 
+/* تنسيق الصور */
 .us-card img {
     width: 280px;
-    height: auto;
-    border-radius: 12px;
+    max-width: 100%;
+    border-radius: 10px;
 }
 
+/* تنسيق النص */
 .us-card .text {
     flex: 1;
     text-align: left;
@@ -105,7 +103,27 @@
     font-size: 16px;
     color: #444;
     line-height: 1.7;
-    white-space: pre-line; /* يحافظ على ترتيب الأسطر */
+    white-space: pre-line;
+}
+
+/* استجابة للجوال */
+@media (max-width: 768px) {
+    .us-card {
+        flex-direction: column; /* يخليها عمود */
+        text-align: center;
+    }
+
+    .us-card.reverse {
+        flex-direction: column; /* حتى لو عكس */
+    }
+
+    .us-card img {
+        width: 70%; /* تصغر الصورة للجوال */
+    }
+
+    .us-card .text {
+        text-align: center; /* النص وسط */
+    }
 }
     .story img{
      height: 400px;
