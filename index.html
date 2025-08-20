@@ -49,8 +49,7 @@
         justify-content: center;
         align-items: center;
     }
-        
-    .section-title {
+       .section-title {
     text-align: center;
     font-size: 32px;
     margin: 40px 0;
@@ -59,50 +58,55 @@
 
 .about_us {
     padding: 40px 20px;
-    background-color: #fff;
+    background-color: #f9f9f9;
 }
-.us {
-    display: flex;
-    justify-content: flex-end; 
-    align-items: center;
-    margin-bottom: 50px;
-    gap: 30px;
-}
-
-.us.reverse {
-    flex-direction: row-reverse;}
-
-.us img {
-    width: 350px;
-    height: auto;
-    
-}
-
-.us .text {
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: left;  
-}  
 
 .us-card {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     background: #fff;
     border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     margin: 30px auto;
-    padding: 20px;
-    gap: 20px;
-    max-width: 900px;
+    padding: 25px;
+    gap: 25px;
+    max-width: 950px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.us-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
 
 .us-card.reverse {
-    flex-direction: row-reverse; /* الصورة يسار والنص يمين */
+    flex-direction: row-reverse;
 }
- 
+
+.us-card img {
+    width: 280px;
+    height: auto;
+    border-radius: 12px;
+}
+
+.us-card .text {
+    flex: 1;
+    text-align: left;
+}
+
+.us-card .text h2 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    color: #6a1b9a;
+}
+
+.us-card .text p {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.7;
+    white-space: pre-line; /* يحافظ على ترتيب الأسطر */
+}
     .story img{
      height: 400px;
     width: 400px;
@@ -202,33 +206,65 @@
 </div>
 <div class="about_us hidden" id="aboutUs">
 
+    <h1 class="section-title">About Us</h1>
 
-    <div class="us">
+    
+    <div class="us-card reverse">
+        <img src="photos/uscard1.png" alt="Logo and Girl">
         <div class="text">
-           
-            <h2> It's not just English... It's EMO_TION</h2>
-           
-       
+            <h2>It's not just English... It's EMO_TION</h2>
         </div>
-        <img src="photos/uspic1.png" alt="">
     </div>
 
-    <div class="us reverse">
-        <img src="" alt="">
+    <!-- الكارد الثاني -->
+<div class="us-card">
+        <img src="photos/ema2.PNG" alt="Logo Only">
+        <div class="text">
+            <h2>من نحن؟</h2>
+            <p>
+                "EMO_TION by Ms. Eman" منصة تعليمية تهدف إلى تمكين النساء والمتعلمين من إتقان اللغة الإنجليزية، 
+                ليس فقط كلغة للتواصل، بل كأداة للتفكير، والتعبير، وصناعة الفرص.  
+                انطلقت المنصة من شغف إيمان بالتعليم ورغبتها في أن يكون تعلم اللغة تجربة ملهمة، 
+                تعيد للطلاب ثقتهم بأنفسهم وتفتح أمامهم آفاقًا أوسع.
+            </p>
+        </div>
+    </div>
+
+   
+    <!-- الكارد الثالث -->
+ <div class="us-card reverse">
+        <img src="photos/ema1.png" alt="Ms. Eman">
+        <div class="text">
+            <h2>عن المؤسسة - إيمان المادح</h2>
+            <p>
+                أنا إيمان، معلمة لغة إنجليزية بخبرة متنوعة مع طلاب من أعمار ومستويات مختلفة. 
+                آمنت منذ البداية أن اللغة ليست مجرد قواعد، بل هي وسيلة تمنحنا الثقة، وتساعدنا على إيصال أصواتنا بوضوح.  
+                على مدار السنوات، قدّمت أكثر من مئة صف ناجح، من المستويات المبتدئة حتى المتقدمة، مستخدمة مناهج وأساليب متعددة لألائم كل عقلية وكل طريقة تعلم.  
+                بالنسبة لي، أعظم إنجاز هو أن أرى طالبةً تتحدث الإنجليزية بثقة جديدة، أو تستخدمها لتفتح بابًا في حياتها لم يكن متاحًا من قبل.  
+                أؤمن أن رسالتي في الحياة أن أتعلم وأعلّم.
+            </p>
+        </div>
+    </div>
+
+    <!-- الكارد الرابع -->
+    <div class="us-card ">
+        <img src="photos/uscard4.png" alt="Ms. Eman">
         <div class="text">
             <h2></h2>
-            <p></p>
+            <p> 
+            </p>
         </div>
     </div>
-
-    <div class="us">
+    <!-- الكارد الخامس -->
+    <div class="us-card reverse">
+        <img src="photos/ema1.png" alt="Ms. Eman">
         <div class="text">
             <h2></h2>
-            <p></p>
+            <p> 
+            </p>
         </div>
-        <img src="" alt="">
     </div>
-
+</div>
 </div>
 <div class="quiz-page hidden" id="quizPage">
     <h1 id="top"></h1>
