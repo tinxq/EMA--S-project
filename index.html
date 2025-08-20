@@ -8,7 +8,7 @@
 <style>
     body {
         font-family: Arial, sans-serif;
-        background-color: #f8df9a;
+        background-color: #fff;
         text-align: center;
         color: #333;
         margin: 0;
@@ -49,6 +49,60 @@
         justify-content: center;
         align-items: center;
     }
+        
+    .section-title {
+    text-align: center;
+    font-size: 32px;
+    margin: 40px 0;
+    color: #4c0b50;
+}
+
+.about_us {
+    padding: 40px 20px;
+    background-color: #fff;
+}
+.us {
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;
+    margin-bottom: 50px;
+    gap: 30px;
+}
+
+.us.reverse {
+    flex-direction: row-reverse;}
+
+.us img {
+    width: 350px;
+    height: auto;
+    
+}
+
+.us .text {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;  
+}  
+
+.us-card {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin: 30px auto;
+    padding: 20px;
+    gap: 20px;
+    max-width: 900px;
+}
+
+.us-card.reverse {
+    flex-direction: row-reverse; /* الصورة يسار والنص يمين */
+}
+ 
     .story img{
      height: 400px;
     width: 400px;
@@ -67,7 +121,6 @@
         background-color: rgba(132, 137, 81, 0.478);
         color: white;
         padding: 12px 25px;
-        margin: 15px;
         border: none;
         border-radius: 8px;
         cursor: pointer;
@@ -133,6 +186,7 @@
         </nav>
         <nav class="links">
             <a href="#" onclick="showHome()">Home</a>
+            <a href="#" onclick="aboutUs()">about us</a>
         </nav>
     </div>
 </header>
@@ -146,7 +200,36 @@
 </div>
     <button onclick="startQuiz()">Test</button>
 </div>
+<div class="about_us hidden" id="aboutUs">
 
+
+    <div class="us">
+        <div class="text">
+           
+            <h2> It's not just English... It's EMO_TION</h2>
+           
+       
+        </div>
+        <img src="photos/uspic1.png" alt="">
+    </div>
+
+    <div class="us reverse">
+        <img src="" alt="">
+        <div class="text">
+            <h2></h2>
+            <p></p>
+        </div>
+    </div>
+
+    <div class="us">
+        <div class="text">
+            <h2></h2>
+            <p></p>
+        </div>
+        <img src="" alt="">
+    </div>
+
+</div>
 <div class="quiz-page hidden" id="quizPage">
     <h1 id="top"></h1>
     <div class="container">
@@ -162,13 +245,20 @@
 <script>
     function startQuiz() {
         document.getElementById("homePage").classList.add("hidden");
+        document.getElementById("aboutUs").classList.add("hidden");
         document.getElementById("quizPage").classList.remove("hidden");
         loadLevel();
     }
     
     function showHome() {
+        document.getElementById("aboutUs").classList.add("hidden");
         document.getElementById("quizPage").classList.add("hidden");
         document.getElementById("homePage").classList.remove("hidden");
+    }
+    function aboutUs() {
+        document.getElementById("quizPage").classList.add("hidden");
+        document.getElementById("homePage").classList.add("hidden");
+        document.getElementById("aboutUs").classList.remove("hidden");
     }
     
     const levels = [ "Pre1", "A1", "A2", "B1", "B2"];
@@ -240,7 +330,7 @@
             feedback.textContent = "✔ Correct";
             feedback.style.color = "green";
             scores[levels[currentLevel]] = scores[levels[currentLevel]] || 0;
-            // increase score only once
+    
             if(!feedback.dataset.correct) {
                 scores[levels[currentLevel]]++;
                 feedback.dataset.correct = "true";
