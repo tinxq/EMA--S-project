@@ -62,6 +62,14 @@
   color: #333;
   margin-bottom: 12px;
   line-height: 1.5;
+  text-align: left;
+}
+.testimonial-text-arabic {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 12px;
+  line-height: 1.5;
+  text-align: right;
 }
 
 .stars {
@@ -258,7 +266,7 @@
         <nav class="socials">
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
             <a href="https://www.facebook.com/share/1M4dEyMBRV/"target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://wa.me/message/RN3T7G7GLWWIA1" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://wa.me/09999999" target="_blank"><i class="fab fa-whatsapp"></i></a>
         </nav>
         <nav class="links">
             <a href="#" onclick="showHome()">Home</a>
@@ -279,12 +287,12 @@
         <div class="profile">
           <img src="photos/saudiflag.jpg" alt="profile">
           <div>
-            <h3></h3>
+            <h3>Jouly / Saudi Arabia</h3>
             <span></span>
           </div>
         </div>
-        <p class="testimonial-text">
-          
+        <p class="testimonial-text-arabic">
+            انا جولي استفدت من معلمتي اشياء كثيره منها تعلم الارقام الكبيره و ترتيب الجمل و النطق الصحيح والاختصارات وتعلم اللغه بسهوله و خلال الحصه تطلب مننا تحدي باللغه الانجليزيه نتكلم فقط باللغه الانجليزيه و اي شخص يتكلم عربي تطلب منه كتابه في ورقه عن نص معين و هذا ساعدني في الكتابه و النطق الصحيح والالقاء وتحسن النطق عندي كثير و تعلمت منها كلمات جديده وشكرا معلمتي ايمان على جهدك معي و الحصص ممتعه جدا و مرحه شكرا 
         </p>
         <div class="stars">★★★★★</div>
       </div>
@@ -293,12 +301,15 @@
         <div class="profile">
           <img src="photos/Sudanflag.jpg" alt="profile">
           <div>
-            <h3></h3>
-            <span></span>
+            <h3>Shahd/ Sudan</h3>
+            <span>  
+            
+           </span>
           </div>
         </div>
         <p class="testimonial-text">
-          
+            I'm Shahd I was a student with Ms Ema. 
+            I really improved in English and I loved the language very much because of this teacher. Her explanations helped me understand the grammar rules wonderfully. Her teaching method is easy and quick to understand and her use of examples helped me understand the lessons quickly. I really enjoyed her lessons. To this day, I study from the summaries she prepared for us! I want to mention that she was very kind to us and helped us learn from our mistakes. Overall, it was a valuable experience, especially because of your deep knowledge of the language and attractive teaching methods. Thank you for your fruitful effort.
         </p>
         <div class="stars">★★★★★</div>
       </div>
@@ -307,12 +318,12 @@
         <div class="profile">
           <img src="photos/egyptflag.jpg" alt="profile">
           <div>
-            <h3></h3>
+            <h3>Um Rasil / Egypt</h3>
             <span></span>
           </div>
         </div>
-        <p class="testimonial-text">
-          
+        <p class="testimonial-text-arabic" dir="rtl">
+            تيتشير ايمان من التيتشير اللي عندهم ضمير في شغلهم وانا بناتي الاتنين الحمدلله استفدنا منها كتير وعندها طريقه في الشرح واختصار المعلومه بطريقه كتير حلوه انا كمان استفدت منها جدا
         </p>
         <div class="stars">★★★★★</div>
       </div>
@@ -405,7 +416,7 @@
     </div>
     <section id="contact" style="margin-top:30px; padding:15px; background-color:#f8f0ff; border-radius:10px;">
         <p>Email: <a href="ema@lwa.com">youremail@example.com</a></p>
-        <p>WhatsApp: <a href="https://wa.me/message/RN3T7G7GLWWIA1" target="_blank">تواصل معنا</a></p>
+        <p>WhatsApp: <a href="https://wa.me/09999999" target="_blank">+966500000000</a></p>
     </section>
 </div>
 <script>
@@ -557,11 +568,11 @@
   let html = `
     <div class="result-box">
       <h2>Your Results</h2>
-      <h1>اكملت ِالإختبار انا حقا فخورة بك ويبدو انك فعلا مهتمة بتطوير لغتك والاستثمار في نفسك😊</h1>
+      <h1>اكملت ِالإختبار انا حقا فخورة بك ويبدو انك فعلا مهتمة بتطوير لغتك والاستثمار في نفسك</h1>
       <h3>Your level now is : ${finalLevel}</h3>
       <img src="${info.img}" alt="${finalLevel}" class="result-img">
       <p>${info.msg1}</p>
-      <p class="next-level"> your next level will be :<strong>${info.next}</strong></p>
+      <h3 class="next-level"> your next level will be :<strong>${info.next}</strong></h3>
       <p>${info.msg}</p>
     </div>
   `;
