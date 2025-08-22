@@ -13,6 +13,61 @@
         color: #333;
         margin-top: 10px;
     }
+    body {
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.testimonial-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  max-width: 350px;
+  text-align: left;
+  margin-top: 20px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.profile img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 12px;
+}
+
+.profile h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.profile span {
+  display: block;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.testimonial-text {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.stars {
+  color: #f9b233;
+  font-size: 1.2rem;
+}
     .home-page{ margin-bottom: 15%;}
     img { width: 120px; height: auto; }
     header {
@@ -76,19 +131,18 @@
     transition: 0.3s ease-in-out;
 }
 
-/* عكس الترتيب */
 .us-card.reverse {
     flex-direction: row-reverse;
 }
 
-/* تنسيق الصور */
+
 .us-card img {
     width: 300px;
     max-width: 200%;
     border-radius: 10px;
 }
 
-/* تنسيق النص */
+
 .us-card .text {
     flex: 1;
 }
@@ -108,23 +162,23 @@
     text-align: right;
 }
 
-/* استجابة للجوال */
+
 @media (max-width: 768px) {
     .us-card {
-        flex-direction: column; /* يخليها عمود */
+        flex-direction: column; 
         text-align: center;
     }
 
     .us-card.reverse {
-        flex-direction: column; /* حتى لو عكس */
+        flex-direction: column; 
     }
 
     .us-card img {
-        width: 50%; /* تصغر الصورة للجوال */
+        width: 50%;
     }
 
     .us-card .text {
-        text-align: center; /* النص وسط */
+        text-align: center; 
     }
 }
     .story img{
@@ -221,6 +275,49 @@
     <img src="photos/ad3.png  " alt="photo">
 </div>
     <button onclick="startQuiz()">Test</button>
+    <div class="testimonial-card">
+        <div class="profile">
+          <img src="photos/saudiflag.jpg" alt="profile">
+          <div>
+            <h3></h3>
+            <span></span>
+          </div>
+        </div>
+        <p class="testimonial-text">
+          
+        </p>
+        <div class="stars">★★★★★</div>
+      </div>
+    <!-- card 2-->
+    <div class="testimonial-card">
+        <div class="profile">
+          <img src="photos/Sudanflag.jpg" alt="profile">
+          <div>
+            <h3></h3>
+            <span></span>
+          </div>
+        </div>
+        <p class="testimonial-text">
+          
+        </p>
+        <div class="stars">★★★★★</div>
+      </div>
+    <!--card 3-->
+    <div class="testimonial-card">
+        <div class="profile">
+          <img src="photos/egyptflag.jpg" alt="profile">
+          <div>
+            <h3></h3>
+            <span></span>
+          </div>
+        </div>
+        <p class="testimonial-text">
+          
+        </p>
+        <div class="stars">★★★★★</div>
+      </div>
+    
+
 </div>
 <div class="about_us hidden" id="aboutUs">
 
@@ -332,8 +429,8 @@
     
     const levels = [ "Pre1", "A1", "A2", "B1", "B2"];
     let currentLevel = 0;
-    let scores = {}; // store correct answers per level
-    const passThreshold = 4; // minimum correct answers to pass a level
+    let scores = {}; 
+    const passThreshold = 4; 
     
     const questions = {
         "Pre1": [
@@ -409,7 +506,6 @@
             feedback.style.color = "red";
         }
     
-        // check if all questions answered
         const allAnswered = questions[levels[currentLevel]].every((_, i) => {
             const f = document.getElementById(`feedback${i}`);
             return f.textContent !== "";
@@ -435,43 +531,45 @@
             "A2": { img: "", msg: "" },
             "B1": { img: "", msg: "" },
             "B2": { img: "", msg: "" },
-            "Pre0": { img: "photos/ema1.png", msg: "sorry but u are dumb"}
+"Pre0": { 
+  img: "photos/ema1.png", 
+  msg1: "رائع! لقد تجاوزت البداية 🎉 سيُعطيك ذلك الثقة لتتحدثي عن نفسك والآخرين بجمل بسيطة وواضحة", 
+  next: "pre1", 
+  msg: " في القواعد ستتعلم <span dir='ltr'> Present Simple</span>  لتكتب وتتحدث بسهولة عن حياتك كلمات جديدة سترافقك مثل: <span dir='ltr'>Awesome – Explore – Important</span> ⏳ في 5 أسابيع سنتعلم ونمارس اللغة في مهاراتها الاربعة، ستشعرين إنك حقًا تتحدثين الإنجليزية… استعدي لتجربة مختلفة معنا."
+}
+
         };
 
-        function showFinalResult() {
-            document.getElementById("nextBtn").classList.add("hidden");    
-            const quizDiv = document.getElementById("quiz");
-            quizDiv.innerHTML = "";
-            const messageDiv = document.getElementById("message");
-            messageDiv.classList.remove("hidden");
+      
 
-            let html = "<h2>Your Results</h2>";
-            let finalLevel = "Pre0";
 
-            for (let i = 0; i < levels.length; i++) {
-                const level = levels[i];
-                const numQs = questions[level].length;
-                const correct = scores[level] || 0;
-                html += `<p><strong>${level}:</strong> ${correct} / ${numQs}</p>`;
 
-                if (correct >= passThreshold) {
-                    finalLevel = level;
-                }
-            }
+ function showFinalResult(finalLevel = "Pre0") {
+  document.getElementById("nextBtn").classList.add("hidden");
+    const quizDiv = document.getElementById("quiz");
+  quizDiv.innerHTML = "";
 
-            const info = levelInfo[finalLevel];
-            html += `
-                <div style="margin-top:20px; text-align:center;">
-                    <h3>Your Level: ${finalLevel}</h3>
-                    <img src="${info.img}" alt="${finalLevel}" style="max-width:200px; display:block; margin:10px auto;">
-                    <p>${info.msg}</p>
-                </div>
-            `;
+  const messageDiv = document.getElementById("message");
+  messageDiv.classList.remove("hidden");
 
-            messageDiv.innerHTML = html;
-        }
+  const info = levelInfo[finalLevel];
 
-        // Scroll effect
+  let html = `
+    <div class="result-box">
+      <h2>Your Results</h2>
+      <h1>اكملت ِالإختبار انا حقا فخورة بك ويبدو انك فعلا مهتمة بتطوير لغتك والاستثمار في نفسك😊</h1>
+      <h3>Your level now is : ${finalLevel}</h3>
+      <img src="${info.img}" alt="${finalLevel}" class="result-img">
+      <p>${info.msg1}</p>
+      <p class="next-level"> your next level will be :<strong>${info.next}</strong></p>
+      <p>${info.msg}</p>
+    </div>
+  `;
+
+  messageDiv.innerHTML = html;
+}
+
+     
         let prevScrollPos = window.scrollY;
         const header = document.getElementById("main-header");
         window.addEventListener("scroll", function () {
