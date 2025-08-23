@@ -439,13 +439,13 @@
         document.getElementById("aboutUs").classList.remove("hidden");
     }
     
-    const levels = [ "Pre1", "A1", "A2", "B1", "B2"];
+    const levels = [ "Pre", "A1", "A2", "B1", "B2"];
     let currentLevel = 0;
     let scores = {}; 
     const passThreshold = 4; 
     
     const questions = {
-        "Pre1": [
+        "Pre": [
         { q: "What the color of this?", img: "photos/orange.png", options: ["Green", "Yellow", "Orange"], answer: "Orange" },
         { q: "", img: "photos/sarah.jpg", options:["She name is Sarah", "Her name is Sarah.", "His name is Sarah."], answer: "Her name is Sarah." },
         { q: "The apple's color is......<br>The grape's color is.......<br>These are.........", img: "photos/fru.png", options: ["Red, purple , vegetables", "Orange, purple , fruits", "Red, purple , fruits."], answer: "Red, purple , fruits." },
@@ -527,36 +527,58 @@
         // document.getElementById("nextBtn").classList.remove("hidden");
        // }
     }
-    
+    let finalLevel = "Pre"; 
     function nextLevel() {
-        currentLevel++;
-        if(currentLevel < levels.length) {
-            loadLevel();
-        } else {
-            showFinalResult();
-        }
+    const levelName = levels[currentLevel];
+    const correctAnswers = scores[levelName] || 0;
+
+    if (correctAnswers >= passThreshold) {  
+        finalLevel = levelName;
     }
-    
-    const levelInfo = {
-            "Pre1": { img: "", msg: "" },
-            "A1": { img: "", msg: "" },
-            "A2": { img: "", msg: "" },
-            "B1": { img: "", msg: "" },
-            "B2": { img: "", msg: "" },
-"Pre0": { 
-  img: "photos/ema1.png", 
-  msg1: "رائع! لقد تجاوزت البداية 🎉 سيُعطيك ذلك الثقة لتتحدثي عن نفسك والآخرين بجمل بسيطة وواضحة", 
-  next: "pre1", 
-  msg: " في القواعد ستتعلم <span dir='ltr'> Present Simple</span>  لتكتب وتتحدث بسهولة عن حياتك كلمات جديدة سترافقك مثل: <span dir='ltr'>Awesome – Explore – Important</span> ⏳ في 5 أسابيع سنتعلم ونمارس اللغة في مهاراتها الاربعة، ستشعرين إنك حقًا تتحدثين الإنجليزية… استعدي لتجربة مختلفة معنا."
-}
-
-        };
-
-      
+    currentLevel++;
+    if (currentLevel < levels.length) {
+        loadLevel();
+    } else {
+        showFinalResult(finalLevel);
+    }
+} 
 
 
+const levelInfo = {
+    "Pre": { 
+        img: "", 
+        msg: "رائع! لقد تجاوزت البداية. 🌱", 
+        next:"A1", 
+        msg1:"سيُعطيك الثقة لتتحدث عن نفسك والآخرين بجمل بسيطة وواضحة. في <span dir='ltr'>A1</span> ستتعلم القواعد مثل <span dir='ltr'>Present Simple</span>، لتكتب وتتحدث بسهولة عن حياتك. كلمات جديدة سترافقك مثل: <span dir='ltr'>Awesome – Explore – Important</span>. ⏳ في 5 أسابيع ستشعر أنك حقًا تتكلم الإنجليزية… استعدي لتجربة مختلفة معنا." 
+    },
+    "A1": { 
+        img: "", 
+        msg: "ممتاز 👌 لقد وضعت الأساسيات جيدًا، لكن هنا تبدأ التحديات الحقيقية.", 
+        next:"A2", 
+        msg1:"في <span dir='ltr'>A2</span> ستستطيع التحدث عن يومك وقصصك الماضية بثقة أكبر. ستتعلم <span dir='ltr'>Past Simple</span> لتروي أحداثك بطلاقة. كلمات جديدة ستفتح لك المعنى مثل: <span dir='ltr'>Journey – Experience – Delicious</span>. ⏳ بعد 6 أسابيع ستدرك أن الإنجليزية لم تعد فقط للتعريف بنفسك… بل للتعبير عن حياتك." 
+    },
+    "A2": { 
+        img: "", 
+        msg: "جيد جدًا 🎯 لقد قطعت شوطًا مهمًا… لكن الآن عليك أن تنتقل من الكلام البسيط إلى النقاش والتخطيط.", 
+        next:"B1", 
+        msg1:"في <span dir='ltr'>B1</span> ستدخل في محادثات أعمق: اهتماماتك، خططك، أهدافك. في القواعد ستتقن <span dir='ltr'>Future Tense</span> لتتحدث عن المستقبل بثقة. كلمات مثل: <span dir='ltr'>Opportunity – Challenge – Confident</span> ستصبح جزءًا من قاموسك. ⏳ خلال 8 أسابيع ستشعر أن الإنجليزية صارت لغة تفكيرك، وليست مجرد درس." 
+    },
+    "B1": { 
+        img: "", 
+        msg: "رائع جدًا 👏 أنت الآن في مستوى يُمكّنك من التواصل بسهولة… لكن دعني أخبرك: هذا ليس كافيًا بعد!", 
+        next:"B2", 
+        msg1:"في <span dir='ltr'>B2</span> ستتحدث وتكتب بطلاقة في مواضيع معقدة: أكاديمية، عملية، حياتية. ستتعلم <span dir='ltr'>Conditional Sentences</span> لتُعبّر عن الاحتمالات والأفكار المتقدمة. كلمات قوية سترافقك مثل: <span dir='ltr'>Achievement – Influence – Critical thinking</span>. ⏳ خلال 10 أسابيع ستتفاجأ بقدرتك على النقاش والتأثير… وهذا ما ينتظرك في B2." 
+    },
+    "B2": { 
+        img: "", 
+        msg: "مبهر! 🌟 أنت بالفعل تتحدث الإنجليزية بطلاقة جيدة، لكن تذكّر: اللغة بحر لا ينتهي.", 
+        next:"C1", 
+        msg1:"في <span dir='ltr'>C1</span> ستتعلم كيف تفكر وتكتب بالإنجليزية كأنها لغتك الأم. ستستخدم تراكيب معقدة بسهولة، وتضيف لحديثك كلمات مثل: <span dir='ltr'>Sophisticated – Empower – Innovation</span>. السر في هذه المرحلة ليس في ما تعرفه فقط… بل في الممارسة المستمرة وصقل مهاراتك. ⏳ رحلتك نحو الاحتراف تبدأ الآن… ونحن هنا لنضمن أنك لا تتوقف عند هذا الحد." 
+    }
+};
 
- function showFinalResult(finalLevel) {
+
+ function showFinalResult(finalLevel="Pre0") {
   document.getElementById("nextBtn").classList.add("hidden");
     const quizDiv = document.getElementById("quiz");
   quizDiv.innerHTML = "";
@@ -572,9 +594,9 @@
       <h1>اكملت ِالإختبار انا حقا فخورة بك ويبدو انك فعلا مهتمة بتطوير لغتك والاستثمار في نفسك</h1>
       <h3>Your level now is : ${finalLevel}</h3>
       <img src="${info.img}" alt="${finalLevel}" class="result-img">
-      <p>${info.msg1}</p>
-      <h3 class="next-level"> your next level will be :<strong>${info.next}</strong></h3>
       <p>${info.msg}</p>
+      <h3 class="next-level"> your next level will be :<strong>${info.next}</strong></h3>
+      <p>${info.msg1}</p>
     </div>
   `;
 
@@ -593,8 +615,8 @@
             }
             prevScrollPos = currScrollPos;
         });
+        
     </script>
-    
-    
+
 </body>
 </html>
