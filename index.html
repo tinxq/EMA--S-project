@@ -256,7 +256,58 @@
     }
     .option:hover { background-color: #3c4202; color: white; }
     .option input { margin-right: 10px; transform: scale(1.3); }
+    .result-box {
+  max-width: 600px;
+  margin: 40px auto;
+  background: linear-gradient(135deg, #f9f9f9, #ffffff);
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  padding: 30px;
+  text-align: center;
+  font-family: 'Cairo', sans-serif; /* يدعم العربية */
+  color: #333;
+  transition: all 0.3s ease;
+}
 
+.result-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.result-box h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.result-box h1 {
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.result-box h3 {
+  font-size: 18px;
+  margin: 15px 0;
+  color: #2d054a;
+}
+
+.result-box .next-level strong {
+  color: #a410ee;
+}
+
+.result-box p {
+  font-size: 16px;
+  margin: 10px 0;
+  color: #555;
+}
+
+.result-box .result-img {
+  width: 180px;
+  height: auto;
+  margin: 20px 0;
+}
 </style>
 <link rel="icon" type="image/png" href="photos/logo.png">
 </head>
