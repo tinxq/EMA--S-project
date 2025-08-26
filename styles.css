@@ -1,4 +1,3 @@
-/* إعدادات عامة */
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +5,7 @@
 }
 
 body {
-    font-family: 'Cairo', Arial, sans-serif; /* دعم العربية */
+    font-family: 'Cairo', Arial, sans-serif;
     background: #f7f7f7;
     color: #333;
     min-height: 100vh;
@@ -16,7 +15,6 @@ body {
     padding: 20px;
 }
 
-/* تنسيق الهيدر */
 header {
     position: fixed;
     top: 0;
@@ -61,7 +59,6 @@ nav.links a:hover {
     text-decoration: underline;
 }
 
-/* تنسيق الصفحة الرئيسية */
 .home-page {
     background: #fff;
     padding: 2rem;
@@ -76,7 +73,6 @@ nav.links a:hover {
     text-align: center;
 }
 
-/* تنسيق القصة */
 .story {
     padding-top: 100px;
     display: flex;
@@ -88,20 +84,20 @@ nav.links a:hover {
 .story h1 {
     font-size: 2rem;
     color: #4c0b50;
-    direction: ltr; /* الإنجليزية من اليسار */
+    direction: ltr;
 }
 
 .story h1[dir="rtl"] {
-    direction: rtl; /* العربية من اليمين */
+    direction: rtl;
 }
 
 .story img {
     width: clamp(200px, 50vw, 400px);
     height: auto;
     border-radius: 8px;
+    object-fit: cover;
 }
 
-/* تنسيق بطاقات الشهادات */
 .testimonial-card {
     background: #fff;
     padding: 1.5rem;
@@ -162,7 +158,6 @@ nav.links a:hover {
     font-size: 1.2rem;
 }
 
-/* تنسيق قسم "عنّا" */
 .about_us {
     padding: 40px 20px;
     background-color: #f9f9f9;
@@ -208,6 +203,7 @@ nav.links a:hover {
     width: clamp(150px, 30vw, 300px);
     height: auto;
     border-radius: 8px;
+    object-fit: cover;
 }
 
 .us-card .text {
@@ -233,7 +229,6 @@ nav.links a:hover {
     direction: ltr;
 }
 
-/* تنسيق صفحة الاختبار */
 .quiz-page {
     padding-top: 120px;
     max-width: 1200px;
@@ -248,13 +243,46 @@ nav.links a:hover {
     margin: 1rem auto;
     max-width: 600px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.question-card img {
+    max-width: 100%;
+    width: clamp(150px, 50vw, 300px);
+    height:200px;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    margin: 0 auto;
+}
+
+.question-card audio {
+    width: clamp(200px, 80vw, 400px);
+    margin: 1rem auto;
+    border-radius: 8px;
+    outline: none;
+}
+
+.question-card audio::-webkit-media-controls-panel {
+    background-color: #fff;
+    border: 2px solid #4c0b50;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.question-card audio::-webkit-media-controls-play-button,
+.question-card audio::-webkit-media-controls-volume-slider {
+    background-color: #be6db9;
+    border-radius: 50px;
 }
 
 .question-text {
     font-size: 1.1rem;
-    margin-bottom: 1rem;
     font-weight: bold;
     color: #444;
+    text-align: center;
     direction: ltr;
 }
 
@@ -269,11 +297,12 @@ nav.links a:hover {
     padding: 10px;
     margin: 8px 0;
     cursor: pointer;
-    transition: 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
     display: flex;
     align-items: center;
     text-align: left;
     direction: ltr;
+    width: 100%;
 }
 
 .option[dir="rtl"] {
@@ -284,6 +313,7 @@ nav.links a:hover {
 .option:hover {
     background-color: #3c4202;
     color: white;
+    transform: translateY(-2px);
 }
 
 .option input {
@@ -342,9 +372,9 @@ nav.links a:hover {
     width: clamp(120px, 30vw, 180px);
     height: auto;
     margin: 1rem 0;
+    object-fit: cover;
 }
 
-/* تنسيق الأزرار */
 button {
     background-color: rgba(132, 137, 81, 0.478);
     color: white;
@@ -360,7 +390,6 @@ button:hover {
     background-color: #3c4202;
 }
 
-/* تنسيق الرسائل */
 .success,
 .fail {
     padding: 15px;
@@ -379,15 +408,13 @@ button:hover {
     color: #b71c1c;
 }
 
-/* تنسيق الصور */
 .map-img {
     width: clamp(200px, 50vw, 300px);
     height: auto;
-    border: 2px solid #4c0b50;
     border-radius: 10px;
+    object-fit: cover;
 }
 
-/* تنسيق قسم التواصل */
 #contact {
     margin-top: 2rem;
     padding: 1rem;
@@ -412,12 +439,10 @@ button:hover {
     text-decoration: underline;
 }
 
-/* إخفاء العناصر */
 .hidden {
     display: none;
 }
 
-/* Media Queries للتوافق مع الأجهزة */
 @media (max-width: 768px) {
     .header-container {
         flex-direction: column;
@@ -456,15 +481,18 @@ button:hover {
     .us-card .text p {
         text-align: center;
     }
-    .question-card img {
-        width: clamp(150px, 50vw, 300px); 
-        height: auto;
-        border-radius: 8px;
-        margin: 1rem auto; 
-        display: block; 
-    }
+
     .question-card {
         max-width: 90%;
+        padding: 1rem;
+    }
+
+    .question-card img {
+        width: clamp(120px, 80vw, 250px);
+    }
+
+    .question-card audio {
+        width: clamp(150px, 80vw, 300px);
     }
 
     .option input {
@@ -490,33 +518,13 @@ button:hover {
     .section-title {
         font-size: 1.5rem;
     }
-}
 
-.map-img {
-    width: 300px; 
-    height: auto;
-    border: 2px solid #4c0b50; 
-    border-radius: 10px; 
-}
-/* تنسيق عنصر الصوت */
-.question-card audio {
-    width: clamp(200px, 80vw, 400px); /* حجم متجاوب لعنصر الصوت */
-    margin: 1rem auto;
-    display: block;
-    border-radius: 8px;
-    outline: none;
-}
+    .question-card img {
+        width: 100%;
+        max-width: 200px;
+    }
 
-/* تخصيص مظهر عنصر الصوت */
-.question-card audio::-webkit-media-controls-panel {
-    background-color: #fff;
-    border: 2px solid #4c0b50;
-    border-radius: 8px;
-    padding: 5px;
-}
-
-.question-card audio::-webkit-media-controls-play-button,
-.question-card audio::-webkit-media-controls-volume-slider {
-    background-color: #be6db9;
-    border-radius: 50px;
+    .question-text {
+        font-size: 1rem;
+    }
 }
