@@ -498,3 +498,25 @@ button:hover {
     border: 2px solid #4c0b50; 
     border-radius: 10px; 
 }
+/* تنسيق عنصر الصوت */
+.question-card audio {
+    width: clamp(200px, 80vw, 400px); /* حجم متجاوب لعنصر الصوت */
+    margin: 1rem auto;
+    display: block;
+    border-radius: 8px;
+    outline: none;
+}
+
+/* تخصيص مظهر عنصر الصوت */
+.question-card audio::-webkit-media-controls-panel {
+    background-color: #fff;
+    border: 2px solid #4c0b50;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.question-card audio::-webkit-media-controls-play-button,
+.question-card audio::-webkit-media-controls-volume-slider {
+    background-color: #be6db9;
+    border-radius: 50px;
+}
