@@ -44,7 +44,7 @@ nav.socials a {
 }
 
 nav.socials a:hover {
-    color: #C8A2C8;
+    color: #4B0082;
 }
 
 nav.links a {
@@ -57,7 +57,7 @@ nav.links a {
 
 nav.links a:hover {
     text-decoration: underline;
-    color: #C8A2C8;
+    color:#4B0082;
 }
 
 .home-page {
