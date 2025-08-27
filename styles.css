@@ -37,7 +37,7 @@ header {
 }
 
 nav.socials a {
-    color: #D8BFD8;
+    color: #4B0082;
     font-size: 1.25rem;
     margin: 0 8px;
     transition: color 0.3s;
@@ -48,7 +48,7 @@ nav.socials a:hover {
 }
 
 nav.links a {
-    color: #D8BFD8;
+    color: #4e354e;
     text-decoration: none;
     margin: 0 10px;
     font-weight: bold;
