@@ -21,7 +21,6 @@
         <nav class="links">
             <a href="#" onclick="showHome()">Home</a>
             <a href="#" onclick="aboutUs()">about us</a>
-            <a href="admin.html" >admin</a>
         </nav>
     </div>
 </header>
@@ -343,7 +342,7 @@ async function showFinalResult(finalLevel = "Pre0") {
 
   const info = levelInfo[finalLevel];
 
-  // إنشاء محتوى النتيجة
+
   let html = `
     <div class="result-box">
       <h2>Your Results</h2>
@@ -356,31 +355,9 @@ async function showFinalResult(finalLevel = "Pre0") {
     </div>
   `;
 
-  messageDiv.innerHTML = html;
-
-  // هنا نطلب الاسم (زي ما قلت تبغى الاسم مع النتيجة)
-  const studentName = prompt("ادخل اسمك لحفظ النتيجة:");
-  const studentEmail = prompt("ادخل إيميلك (اختياري):");
-
-  // استدعاء دالة الحفظ في Supabase
-  try {
-    await saveResult(studentName, studentEmail, finalLevel, scores[finalLevel] || 0);
-    console.log("✅ النتيجة انحفظت في Supabase بنجاح");
-  } catch (error) {
-    console.error("❌ خطأ أثناء الحفظ:", error.message);
-  }
-}
-async function saveResult(name, email, level, score) {
-    const { data, error } = await supabase
-        .from('results') // اسم الجدول عندك في Supabase
-        .insert([
-            { student_name: name, student_email: email, level: level, score: score }
-        ]);
-
-    if (error) throw error;
-    return data;
-}
+  messageDiv.innerHTML = html; }
 
     </script>
+    
 </body>
 </html>
