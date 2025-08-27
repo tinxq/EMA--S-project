@@ -369,6 +369,19 @@ const levelInfo = {
             prevScrollPos = currScrollPos;
         });
         
+
+        async function saveResult(name, email, level, score) {
+  const response = await fetch("/.netlify/functions/saveResult", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name, email, level, score })
+  });
+
+  const result = await response.json();
+  console.log(result);
+}
+
+
     </script>
 
 </body>
