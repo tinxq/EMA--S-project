@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="styles.css">
 <link rel="icon" type="image/png" href="photos/logo.png">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/supabase.min.js"></script>
 </head>
 <body>
 
@@ -20,6 +21,7 @@
         <nav class="links">
             <a href="#" onclick="showHome()">Home</a>
             <a href="#" onclick="aboutUs()">about us</a>
+            <a href="admin.html" >admin</a>
         </nav>
     </div>
 </header>
@@ -331,9 +333,9 @@ const levelInfo = {
 };
 
 
- function showFinalResult(finalLevel="Pre0") {
+async function showFinalResult(finalLevel = "Pre0") {
   document.getElementById("nextBtn").classList.add("hidden");
-    const quizDiv = document.getElementById("quiz");
+  const quizDiv = document.getElementById("quiz");
   quizDiv.innerHTML = "";
 
   const messageDiv = document.getElementById("message");
@@ -341,6 +343,7 @@ const levelInfo = {
 
   const info = levelInfo[finalLevel];
 
+  // إنشاء محتوى النتيجة
   let html = `
     <div class="result-box">
       <h2>Your Results</h2>
@@ -348,41 +351,36 @@ const levelInfo = {
       <h3>Your level now is : ${finalLevel}</h3>
       <img src="${info.img}" alt="${finalLevel}" class="result-img">
       <p>${info.msg}</p>
-      <h3 class="next-level"> your next level will be :<strong>${info.next}</strong></h3>
+      <h3 class="next-level"> your next level will be : <strong>${info.next}</strong></h3>
       <p>${info.msg1}</p>
     </div>
   `;
 
   messageDiv.innerHTML = html;
+
+  // هنا نطلب الاسم (زي ما قلت تبغى الاسم مع النتيجة)
+  const studentName = prompt("ادخل اسمك لحفظ النتيجة:");
+  const studentEmail = prompt("ادخل إيميلك (اختياري):");
+
+  // استدعاء دالة الحفظ في Supabase
+  try {
+    await saveResult(studentName, studentEmail, finalLevel, scores[finalLevel] || 0);
+    console.log("✅ النتيجة انحفظت في Supabase بنجاح");
+  } catch (error) {
+    console.error("❌ خطأ أثناء الحفظ:", error.message);
+  }
 }
+async function saveResult(name, email, level, score) {
+    const { data, error } = await supabase
+        .from('results') // اسم الجدول عندك في Supabase
+        .insert([
+            { student_name: name, student_email: email, level: level, score: score }
+        ]);
 
-     
-        let prevScrollPos = window.scrollY;
-        const header = document.getElementById("main-header");
-        window.addEventListener("scroll", function () {
-            const currScrollPos = window.scrollY;
-            if (prevScrollPos > currScrollPos) {
-                header.style.transform = "translateY(0)";
-            } else {
-                header.style.transform = "translateY(-200px)";
-            }
-            prevScrollPos = currScrollPos;
-        });
-        
-
-        async function saveResult(name, email, level, score) {
-  const response = await fetch("/.netlify/functions/saveResult", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name, email, level, score })
-  });
-
-  const result = await response.json();
-  console.log(result);
+    if (error) throw error;
+    return data;
 }
-
 
     </script>
-
 </body>
 </html>
