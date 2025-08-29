@@ -686,3 +686,33 @@ h6 {
    background-color: #D8BFD8;
 
 }
+
+.rounds {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.rounds h1 {
+    margin: 0;
+    font-size: 24px;
+    background-color: rgb(239, 181, 64);
+}
+
+.rounds img {
+    max-width: 100%;
+    height: auto;
+}
+
+.rounds p {
+    margin: 0;
+    font-size: 15px;
+font-weight: bold;
+}
+.round{
+background-color: hsl(60, 73%, 84%);
+box-shadow: #000000;
+border-radius: 3%;
+padding-bottom: 5%;
+}
