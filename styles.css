@@ -140,18 +140,20 @@ nav.links a:hover {
     width: 100%;
     position: relative;
 }
-
-.testimonial-text, .testimonial-text-arabic {
-    font-size: 0.95rem;
-    color: #333;
-    line-height: 1.5;
-    margin: 0;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3; /* Truncates text to 3 lines */
-    transition: all 0.3s ease;
+.testimonial-text,
+.testimonial-text-arabic {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.5;
+  margin: 0;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; /* عدد الأسطر */
+  transition: all 0.3s ease;
 }
+
+
 
 .testimonial-text {
     text-align: left;
@@ -165,7 +167,7 @@ nav.links a:hover {
 
 .testimonial-text-wrapper.expanded .testimonial-text,
 .testimonial-text-wrapper.expanded .testimonial-text-arabic {
-    -webkit-line-clamp: unset; /* Removes truncation when expanded */
+-webkit-line-clamp: unset; /* Removes truncation when expanded */
 }
 
 .read-more-btn {
@@ -179,10 +181,6 @@ nav.links a:hover {
     text-align: center;
     display: block;
     width: 100%;
-}
-
-.read-more-btn:hover {
-    color: #6A0DAD;
 }
 
 .stars {
@@ -637,7 +635,7 @@ button:hover {
   }
   
   .warn {
-    color: #f80808;
+    color: #fe0b0b;
     font-family: 'Arial', sans-serif;
     font-size: 1.5rem;
     text-align: center;
@@ -646,3 +644,122 @@ button:hover {
     display: inline-block;
     margin: 20px auto;
   }
+  .ad-photo{
+
+width:30%;
+
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 20px;
+    width: 80%;
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
+  }
+  
+  /* النص فوق الصورة */
+  .text-top {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 1.1em;
+    color: #4a2c2a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    background-color: #fbe8fb;
+    border-radius: 8px;
+  }
+  
+  /* النص يسار الصورة */
+  .text-left {
+    grid-column: 1;
+    grid-row: 2;
+    font-size: 1em;
+    color: #4a2c2a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    text-align: right;
+    background-color: #fbe8fb;
+    border-radius: 8px;
+  }
+  
+  /* الصورة بالوسط */
+  .image {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .image img {
+    max-width: 100%;
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  /* النص يمين الصورة */
+  .text-right {
+    grid-column: 3;
+    grid-row: 2;
+    font-size: 1em;
+    color: #4a2c2a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    text-align: left;
+    background-color: #fbe8fb;
+    border-radius: 8px;
+  }
+  
+  
+  .text-bottom {
+    grid-column: 2;
+    grid-row: 3;
+    font-size: 1.1em;
+    color: #4a2c2a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    background-color: #fbe8fb;
+    border-radius: 30px;
+  }
+  
+  @media (max-width: 900px) {
+    .grid-container {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      width: 95%;
+    }
+  
+    .text-top, .text-left, .text-right, .text-bottom {
+      text-align: center;
+      font-size: 1em;
+    }
+  
+    .image img {
+      width: 70%;
+      max-width: 280px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .text-top, .text-left, .text-right, .text-bottom {
+      font-size: 0.9em;
+      padding: 10px;
+    }
+  
+    .image img {
+      width: 300px;
+    
+    }
+  }
+  
