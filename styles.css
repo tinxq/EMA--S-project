@@ -516,12 +516,12 @@ button:hover {
 .warn {
     color: #fe0b0b;
     font-family: 'Arial', sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-align: center;
     direction: rtl;
     animation: pulse 1.5s infinite ease-in-out;
     display: inline-block;
-    margin: 20px auto;
+    margin: 10px auto;
 }
 
 .ad-photo {
@@ -665,5 +665,17 @@ button:hover {
     margin-left: auto;
     margin-right: auto;
 
+
+}
+p{
+    
+    font-size: 1rem; 
+
+
+}
+.warning h4{
+
+color: #d32f2f;
+ font-size: 1rem; 
 
 }
