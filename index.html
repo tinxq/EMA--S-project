@@ -29,58 +29,65 @@
     
 <div class="story">
     <h1>Emo-Tion for English</h1>
-    <img src="photos/1111ema.png   " alt="photo">
-    <h1></h1>
+   
+    <div class="warning" dir="rtl">
+        <h2 class="warn">🛑 تحذير 🛑</h2>
+        <h1>هذا الموقع للنساء المهتمات بتطوير والاستثمار في عقلوهن فقط، ان لم تكوني كذالك فلا تضيعي زمنك هنا</h1></div>
     <img src="photos/ad1.png   " alt="photo">
     <img src="photos/ad2.png   " alt="photo">
     <img src="photos/ad3.png  " alt="photo"> 
     <button onclick="startQuiz()">Test</button>
 </div>
-   
-    <div class="testimonial-card">
-        <div class="profile">
-          <img src="photos/saudiflag.jpg" alt="profile">
-          <div>
+<div class="testimonial-card">
+    <div class="profile">
+        <img src="photos/saudiflag.jpg" alt="profile">
+        <div>
             <h3>Jouly / Saudi Arabia</h3>
             <span></span>
-          </div>
         </div>
+    </div>
+    <div class="testimonial-text-wrapper">
         <p class="testimonial-text-arabic">
             انا جولي استفدت من معلمتي اشياء كثيره منها تعلم الارقام الكبيره و ترتيب الجمل و النطق الصحيح والاختصارات وتعلم اللغه بسهوله و خلال الحصه تطلب مننا تحدي باللغه الانجليزيه نتكلم فقط باللغه الانجليزيه و اي شخص يتكلم عربي تطلب منه كتابه في ورقه عن نص معين و هذا ساعدني في الكتابه و النطق الصحيح والالقاء وتحسن النطق عندي كثير و تعلمت منها كلمات جديده وشكرا معلمتي ايمان على جهدك معي و الحصص ممتعه جدا و مرحه شكرا 
         </p>
-        <div class="stars">★★★★★</div>
-      </div>
-    <!-- card 2-->
-    <div class="testimonial-card">
-        <div class="profile">
-          <img src="photos/Sudanflag.jpg" alt="profile">
-          <div>
-            <h3>Shahd/ Sudan</h3>
-            <span>  
-            
-           </span>
-          </div>
+        <button class="read-more-btn">Read More</button>
+    </div>
+    <div class="stars">★★★★★</div>
+</div>
+<!-- Card 2 -->
+<div class="testimonial-card">
+    <div class="profile">
+        <img src="photos/Sudanflag.jpg" alt="profile">
+        <div>
+            <h3>Shahd / Sudan</h3>
+            <span></span>
         </div>
+    </div>
+    <div class="testimonial-text-wrapper">
         <p class="testimonial-text">
-            I'm Shahd I was a student with Ms Ema. 
-            I really improved in English and I loved the language very much because of this teacher. Her explanations helped me understand the grammar rules wonderfully. Her teaching method is easy and quick to understand and her use of examples helped me understand the lessons quickly. I really enjoyed her lessons. To this day, I study from the summaries she prepared for us! I want to mention that she was very kind to us and helped us learn from our mistakes. Overall, it was a valuable experience, especially because of your deep knowledge of the language and attractive teaching methods. Thank you for your fruitful effort.
+            I'm Shahd I was a student with Ms Ema. I really improved in English and I loved the language very much because of this teacher. Her explanations helped me understand the grammar rules wonderfully. Her teaching method is easy and quick to understand and her use of examples helped me understand the lessons quickly. I really enjoyed her lessons. To this day, I study from the summaries she prepared for us! I want to mention that she was very kind to us and helped us learn from our mistakes. Overall, it was a valuable experience, especially because of your deep knowledge of the language and attractive teaching methods. Thank you for your fruitful effort.
         </p>
-        <div class="stars">★★★★★</div>
-      </div>
-    <!--card 3-->
-    <div class="testimonial-card">
-        <div class="profile">
-          <img src="photos/egyptflag.jpg" alt="profile">
-          <div>
+        <button class="read-more-btn">Read More</button>
+    </div>
+    <div class="stars">★★★★★</div>
+</div>
+<!-- Card 3 -->
+<div class="testimonial-card">
+    <div class="profile">
+        <img src="photos/egyptflag.jpg" alt="profile">
+        <div>
             <h3>Um Rasil / Egypt</h3>
             <span></span>
-          </div>
         </div>
+    </div>
+    <div class="testimonial-text-wrapper">
         <p class="testimonial-text-arabic" dir="rtl">
             تيتشير ايمان من التيتشير اللي عندهم ضمير في شغلهم وانا بناتي الاتنين الحمدلله استفدنا منها كتير وعندها طريقه في الشرح واختصار المعلومه بطريقه كتير حلوه انا كمان استفدت منها جدا
         </p>
-        <div class="stars">★★★★★</div>
-      </div>
+        <button class="read-more-btn">Read More</button>
+    </div>
+    <div class="stars">★★★★★</div>
+</div>
     
 
 </div>
@@ -356,6 +363,14 @@ async function showFinalResult(finalLevel = "Pre0") {
   `;
 
   messageDiv.innerHTML = html; }
+
+  document.querySelectorAll('.read-more-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const wrapper = button.parentElement;
+        wrapper.classList.toggle('expanded');
+        button.textContent = wrapper.classList.contains('expanded') ? 'Read Less' : 'Read More';
+    });
+});
 
     </script>
     

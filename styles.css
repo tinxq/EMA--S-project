@@ -97,9 +97,7 @@ nav.links a:hover {
     width: clamp(200px, 50vw, 400px);
     height: auto;
     border-radius: 8px;
-}
-
-.testimonial-card {
+}.testimonial-card {
     background: #fff;
     padding: 1.5rem;
     border-radius: 12px;
@@ -138,25 +136,59 @@ nav.links a:hover {
     color: #666;
 }
 
-.testimonial-text {
+.testimonial-text-wrapper {
+    width: 100%;
+    position: relative;
+}
+
+.testimonial-text, .testimonial-text-arabic {
     font-size: 0.95rem;
     color: #333;
     line-height: 1.5;
+    margin: 0;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3; /* Truncates text to 3 lines */
+    transition: all 0.3s ease;
+}
+
+.testimonial-text {
     text-align: left;
     direction: ltr;
 }
 
 .testimonial-text-arabic {
-    font-size: 0.95rem;
-    color: #333;
-    line-height: 1.5;
     text-align: right;
     direction: rtl;
+}
+
+.testimonial-text-wrapper.expanded .testimonial-text,
+.testimonial-text-wrapper.expanded .testimonial-text-arabic {
+    -webkit-line-clamp: unset; /* Removes truncation when expanded */
+}
+
+.read-more-btn {
+    background: none;
+    border: none;
+    color: #4B0082;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    text-align: center;
+    display: block;
+    width: 100%;
+}
+
+.read-more-btn:hover {
+    color: #6A0DAD;
 }
 
 .stars {
     color: #D8BFD8;
     font-size: 1.2rem;
+    margin-top: 0.5rem;
 }
 
 .about_us {
@@ -581,3 +613,36 @@ button:hover {
         font-size: 0.9rem;
     }
 }
+
+.warning {
+    font-family: 'Tajawal', 'Arial', sans-serif; /* Use a clean, modern Arabic font */
+    font-size: 2.5rem; /* Large font size for emphasis */
+    color: #d32f2f; /* Red color for warning */
+    text-align: center; /* Center the text */
+    direction: rtl; /* Right-to-left text direction */
+    margin: 20px 0; /* Vertical spacing */
+    padding: 15px; /* Padding for better appearance */
+    background-color: #fff3f3; /* Light red background for warning */
+    border: 2px solid #d32f2f; /* Red border */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 600px; /* Limit width for readability */
+    margin-left: auto; /* Center the element */
+    margin-right: auto;
+}
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+  }
+  
+  .warn {
+    color: #f80808;
+    font-family: 'Arial', sans-serif;
+    font-size: 1.5rem;
+    text-align: center;
+    direction: rtl;
+    animation: pulse 1.5s infinite ease-in-out;
+    display: inline-block;
+    margin: 20px auto;
+  }
