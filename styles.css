@@ -698,7 +698,7 @@ h6 {
 .rounds h1 {
     margin: 0;
     font-size: 24px;
-    background-color: rgb(239, 181, 64);
+    background-color: rgb(185, 141, 189);
 }
 
 .rounds img {
@@ -712,7 +712,7 @@ h6 {
 font-weight: bold;
 }
 .round{
-background-color: hsl(60, 73%, 84%);
+background-color: hsl(298, 52%, 89%);
 box-shadow: #000000;
 border-radius: 3%;
 padding-bottom: 5%;
@@ -778,4 +778,10 @@ padding-bottom: 5%;
     border-bottom: 8px solid transparent;
     border-right: 12px solid #333; /* Changed from border-left to border-right */
     transform: translateY(-50%);
+}
+.boxes-img{
+
+width: 200px;
+
+
 }
