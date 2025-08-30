@@ -682,7 +682,7 @@ h6 {
 
 .box, .box1 {
     width: 90px;
-    height: 90px;
+    height: 100px;
     color: white;
     display: flex;
     justify-content: center;
