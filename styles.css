@@ -682,7 +682,7 @@ h6 {
 
 .box, .box1 {
     width: 90px;
-    height: 80px;
+    height: 90px;
     color: white;
     display: flex;
     justify-content: center;
@@ -735,8 +735,6 @@ h6 {
     width: 200px;
     max-width: 100%;
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(107, 91, 149, 0.2);
-    /* تم إزالة البوردر */
 }
 
 /* تحسينات للشاشات الصغيرة جدًا */
