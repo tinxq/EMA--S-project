@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emo-Tion for English</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f0ff;
+        text-align: center;
+        color: #333;
+        margin: 0;
+    }
+    img { width: 120px; height: auto; }
+    header {
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        background-color: #18181b;
+        color: pink;
+        transform: translateY(0);
+        transition: transform 0.3s ease-in-out;
+        z-index: 1000;
+    }
+    .map-img {
+        width: 300px; 
+        height: auto;
+        border: 2px solid #ff8fab; 
+        border-radius: 10px; 
+    }
+    .header-container {
+        max-width: 1280px;
+        margin: auto;
+        padding: 16px 32px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    nav a { color: pink; text-decoration: none; margin: 0 10px; font-weight: bold; }
+    nav a:hover { text-decoration: underline; }
+    .socials a { color: pink; font-size: 20px; margin: 0 8px; }
+    .home-page, .quiz-page { padding-top: 120px; }
+    .ad-banner {
+        margin: 20px auto;
+        padding: 20px;
+        background: #ffe4e1;
+        border-radius: 15px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        max-width: 600px;
+    }
+    button {
+        background-color: #ff8fab;
+        color: white;
+        padding: 12px 25px;
+        margin: 15px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 18px;
+    }
+    button:hover { background-color: #ff6b94; }
+    .hidden { display: none; }
+    .success {
+        background-color: #c8e6c9;
+        color: #2e7d32;
+        padding: 15px;
+        border-radius: 10px;
+        margin: 15px 0;
+    }
+    .fail {
+        background-color: #ffcdd2;
+        color: #b71c1c;
+        padding: 15px;
+        border-radius: 10px;
+        margin: 15px 0;
+    }
+    .question-card {
+        background-color: #ffe6f0;
+        border-radius: 15px;
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 500px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+    .question-text {
+        font-size: 18px;
+        margin-bottom: 15px;
+        font-weight: bold;
+        color: #444;
+    }
+    .option {
+        background-color: white;
+        border: 2px solid #ffb6c1;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 8px 0;
+        cursor: pointer;
+        transition: 0.3s;
+        display: flex;
+        align-items: center;
+        text-align: left;
+    }
+    .option:hover { background-color: #ffb6c1; color: white; }
+    .option input { margin-right: 10px; transform: scale(1.3); }
+</style>
+<link rel="icon" type="image/png" href="photos/logo.png">
+</head>
+<body>
+
+<header id="main-header">
+    <div class="header-container">
+        <nav class="socials">
+            <a href="mailto:hello@example.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/09999999" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </nav>
+        <nav class="links">
+            <a href="#" onclick="showHome()">Home</a>
+        </nav>
+    </div>
+</header>
+
+<div class="home-page" id="homePage">
+    <h1></h1>
+    <div class="ad-banner"><img src="photos/ema2.PNG    " alt="photo"></div>
+    <div class="ad-banner"></div>
+    <button onclick="startQuiz()">حدد مستواك</button>
+</div>
+
+<div class="quiz-page hidden" id="quizPage">
+    <h1 id="top"></h1>
+    <div class="container">
+        <div id="quiz"></div>
+        <div id="message" class="message hidden"></div>
+        <button id="nextBtn" onclick="nextLevel()" class="hidden">Next Level</button>
+    </div>
+    <section id="contact" style="margin-top:30px; padding:15px; background-color:#f8f0ff; border-radius:10px;">
+        <p>Email: <a href="ema@lwa.com">youremail@example.com</a></p>
+        <p>WhatsApp: <a href="https://wa.me/09999999" target="_blank">+966500000000</a></p>
+    </section>
+</div>
+
+<script>
+function startQuiz() {
+    document.getElementById("homePage").classList.add("hidden");
+    document.getElementById("quizPage").classList.remove("hidden");
+    loadLevel();
+}
+function showHome() {
+    document.getElementById("quizPage").classList.add("hidden");
+    document.getElementById("homePage").classList.remove("hidden");
+}
+const levels = ["Pre1", "A1", "A2", "B1", "B2"];
+let currentLevel = 0;
+const questions = {
+    "Pre1": [
+        { q: "What the color of this?", img: "photos/orange.png", options: ["Green", "Yellow", "Orange"], answer: "Orange" },
+        { q: "", img: "photos/sarah.jpg", options:["She name is Sarah", "Her name is Sarah.", "His name is Sarah."], answer: "Her name is Sarah." },
+        { q: "The apple's color is......<br>The grape's color is.......<br>These are.........", img: "photos/fru.png", options: ["Red, green, vegetables", "Orange, green, fruits", "Red, green, fruits."], answer: "Red, green, fruits." },
+        { q: "This is a.....",img: "photos/hospital.png", options: ["Hospital", "School", "House"], answer: "Hospital" },
+        { q: "The meaning of this word is:", img: "photos/teacher.JPG", options: ["The person who teaches people.", "The person who heal people", "The person who cook for people"], answer: "The person who teaches people." }
+    ],
+    "A1": [
+        { q: "What is the date", img: "photos/17may.png", options: ["May seventeenth", "Seventeen May", "May seventeen"], answer: "May seventeenth" },
+        { q: "What's the right answer to this question? <br>What do you do?", img: "", options: ["I'm fine thank you", "I'm a doctor", "It's a big car"], answer: "I'm fine thank you" },
+        { q: "Put the right word to complete the sentence.<br>I like him, he always Says yes to his mum, he is a............ Boy.", img: "", options: ["Naughty", "Beautiful", "Good"], answer: "Good" },
+        { q: "She is.......",img:"photos/hungery.PNG" ,options: ["Hungry", "Angry", "Food"], answer: "Hungry" },
+        { q: "Sam Always............. In the park at this time of the day.", img:"photos/walking.png" , options: ["Walking", "Walks ", "Walk"], answer: "Walks" }
+    ],
+    "A2": [
+        { q: "Dear John.What a day!!!It's started with me feeling a bit sick, but yet I went to work, but I found out I got fired from my work, I went back home and there's no food in my fridge, so here I'm sitting in my couch trying to understand My day.From. Ema.<br>How was Ema's day?", options: ["Outstanding", "Horrible", "Lovely"], answer: "Horrible" },
+        { q: "Which sentence is correct", options: ["ema spent last vacation in London", "Ema spend last vacation in London", "Ema spent last vacation in London"], answer: "Ema spent last vacation in London" },
+        { q: "While you are standing next to the school, across from the sports centre, someone asks you how to get to Shop Road.Which of the following directions would be correct to guide them there?", img:"photos/map2.jpg", imgClass:"map-img", options: ["Take Flower Road north until you get to Plant Road, then turn left. Shop Road is straight ahead after the bus stop.", "Go up Park Street until you reach Market Road, then turn left. Shop Road will be on your right.", "Walk along School Road until you reach Tree Street, then turn right. Keep going past the playground and you’ll see Shop Road ahead on your left"], answer: "Walk along School Road until you reach Tree Street, then turn right. Keep going past the playground and you’ll see Shop Road ahead on your left" },
+        { q: "Watch out! The car......", audio: "", options: ["Came", " Come", "Is coming"], answer: "Is coming" },
+        { q: "What was the man's job?", audio: "photos/A2-1.mp3", options: ["Journalist", "Writer", "Postman"], answer: "Postman" }
+    ],
+    "B1": [
+        { q: "What does the girl prefer?", audio: "photos/B1-1.mp3", options: ["Meat and cheese", "Chicken and cheese", "She didn't mention"], answer: "Chicken and cheese" },
+        { q: "There's a lot of work yesterday, my team couldn't handle it, we've tried so hard but we just wasted our energy and our time, so the other team offered to help us, that was so nice of them, so we collaborated together and finally the work is done before the deadline.<br>What's the meaning of collaboration?", options: ["Having both time and energy.", "Asking for help from others", "Working together to do something."], answer: "Working together to do something." },
+        { q: "She.......... In Paris before.", options: ["Has been", "Was", "Had been"], answer: "Has been" },
+        { q: "What period of time she is talking about?",  audio: "photos/B1-2.mp3",options: ["Teenage", "Adulthood", "Childhood"], answer: "Childhood" },
+        { q: "I...........  be there at 07:00 , I planned this.", options: ["Will", " am going to", "May"], answer: "am going to" }
+    ],
+    "B2": [
+        { q: "How does he feel about where he grew up now?", audio: "photos/B2-1.mp3", options: ["Enthusiasm", "Boredom", "Frustration"], answer: "Frustration" },
+        { q: "She felt like she was unstable, that she was lost and very sad, insomnia was making her nights sleepless, and days wasn't better , she spent her day and night over thinking everything , recently her thoughts had become more gloomy and she thought that she should ask for help. From whom should she ask for help?", options: ["Vet", "psychologist", "Neurologist"], answer: "psychologist" },
+        { q: "Many companies today are becoming more cognizant of the environmental impact of their operations. This awareness has led to more sustainable practices and greener policies.What does the word 'cognizant' mean in the context of the passage?",  options: ["Indifferent", "Aware", "Negligent"], answer: "Aware" },
+        { q: "What's the meaning of self - conscious?", audio: "photos/B2-2.mp3", options: ["Feeling awkward and shy", "Being confident", "It's part of your mind that's controls actions"], answer: "Feeling awkward and shy" },
+        { q: "Sarah has always had a passion for the arts. She spends her weekends visiting galleries and attending live performances. Her friends often describe her as someone with a keen aesthetic sense.<br>What can we infer about Sarah’s personality?", options: ["She is uninterested in creative activities.", "She prefers outdoor sports over cultural events.", "She has an appreciation for aesthetics and culture."], answer: "She has an appreciation for aesthetics and culture." }
+    ],
+};
+function loadLevel() {
+    const quizDiv = document.getElementById("quiz");
+    document.getElementById("message").classList.add("hidden");
+    quizDiv.innerHTML = `<h2>Level: ${levels[currentLevel]}</h2>`;
+    questions[levels[currentLevel]].forEach((item, index) => {
+        let html = `<div class="question-card">`;
+        html += `<div class="question-text">${index + 1}. ${item.q || ""}</div>`;
+        if(item.img) html += `<img src="${item.img}" alt="" class="${item.imgClass || ''}">`;
+        if(item.audio) html += `<audio controls src="${item.audio}"></audio>`;
+        item.options.forEach(opt => {
+            html += `<label class="option"><input type="radio" name="q${index}" value="${opt}"> ${opt}</label>`;
+        });
+        html += `</div>`;
+        quizDiv.innerHTML += html;
+    });
+    quizDiv.innerHTML += `<button onclick="checkAnswers()">Check Answers</button>`;
+}
+function checkAnswers() {
+    let correct = 0;
+    questions[levels[currentLevel]].forEach((item, index) => {
+        const selected = document.querySelector(`input[name="q${index}"]:checked`);
+        const questionCard = document.querySelectorAll(".question-card")[index];
+        
+        const oldFeedback = questionCard.querySelector(".feedback");
+        if (oldFeedback) oldFeedback.remove();
+
+        let feedback = document.createElement("div");
+        feedback.classList.add("feedback");
+        feedback.style.marginTop = "10px";
+        feedback.style.padding = "8px";
+        feedback.style.borderRadius = "8px";
+        feedback.style.fontWeight = "bold";
+
+        if (selected && selected.value === item.answer) {
+            correct++;
+            feedback.textContent = "✔ الإجابة صحيحة";
+            feedback.style.backgroundColor = "#c8e6c9";
+            feedback.style.color = "#2e7d32";
+        } else {
+            feedback.textContent = `❌ الإجابة خاطئة — الصحيحة هي: ${item.answer}`;
+            feedback.style.backgroundColor = "#ffcdd2";
+            feedback.style.color = "#b71c1c";
+        }
+
+        questionCard.appendChild(feedback);
+    });
+
+    const messageDiv = document.getElementById("message");
+    messageDiv.classList.remove("hidden");
+
+    if (correct >= 4) {
+        messageDiv.textContent = `✅ Passed the level ${levels[currentLevel]}`;
+        messageDiv.className = "message success";
+        document.getElementById("nextBtn").classList.remove("hidden");
+    } else {
+        messageDiv.textContent = `❌ Your level is: ${levels[currentLevel]}`;
+        messageDiv.className = "message fail";
+        document.getElementById("nextBtn").classList.add("hidden");
+    }
+}
+function nextLevel() {
+    currentLevel++;
+    if(currentLevel < levels.length) {
+        loadLevel();
+        document.getElementById("nextBtn").classList.add("hidden");
+    } else {
+        const messageDiv = document.getElementById("message");
+        messageDiv.textContent = "🎉 You passed all the levels!";
+        messageDiv.className = "message success";
+        messageDiv.classList.remove("hidden");
+    }
+}
+let prevScrollPos = window.scrollY;
+const header = document.getElementById("main-header");
+window.addEventListener("scroll", function () {
+    const currScrollPos = window.scrollY;
+    if (prevScrollPos > currScrollPos) {
+        header.style.transform = "translateY(0)";
+    } else {
+        header.style.transform = "translateY(-200px)";
+    }
+    prevScrollPos = currScrollPos;
+});
+</script>
+
+
+<button id="skipBtn" style="position:fixed;bottom:20px;right:20px;z-index:2000;
+background:#4CAF50;color:white;padding:10px 20px;border:none;border-radius:8px;cursor:pointer;">
+Pass to Next Level
+</button>
+<script>
+document.getElementById("skipBtn").addEventListener("click", function () {
+    nextLevel();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+});
+</script>
+
+</body>
+</html>
