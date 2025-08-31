@@ -222,3 +222,19 @@ const tips = [
     button.innerText = "Click me";
     index = 0;
   }
+  function scrollBoard(boardId, amount) {
+    const board = document.getElementById(boardId);
+    board.scrollBy({
+        top: amount,
+        behavior: 'smooth'
+    });
+}
+function scrollBoard(boardId, amount) {
+    const board = document.getElementById(boardId);
+    board.scrollBy({
+      top: amount,
+      behavior: "smooth",
+    });
+  }
+  
+  

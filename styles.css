@@ -891,24 +891,31 @@ h6 {
 }
 
 
+.board-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px; 
+    margin: 0 auto; 
+}
+
 .board {
     background: #fff;
+    width: 80%;
     margin-top: 15%;
     margin-bottom: 0%;
+    margin-left: 10%;
     border-radius: 15px;
     padding: 15px 20px;
-    font-size:1.80em;
+    font-size: 1.80em;
     font-weight: bold;
     line-height: 1.8;
     color: #654c77;
     position: relative;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    width: 100%;
-    height: 30vh; 
-    overflow-y: auto; 
+    height: 30vh;
+    overflow-y: auto;
     text-align: right;
 }
-
 
 .board::after {
     content: "";
@@ -923,7 +930,59 @@ h6 {
 .board::-webkit-scrollbar {
     width: 6px;
 }
+
 .board::-webkit-scrollbar-thumb {
-    background: #6b0799;
+    background: #ceaedd;
     border-radius: 3px;
+}
+
+/* Arrow container styling - outside the board */
+.scroll-arrows {
+    position: absolute;
+    right: -50px; /* Positioned to the right of the board */
+    top: 50%;
+    transform: translateY(-50%); /* Vertically centered relative to the board */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 10;
+    margin-right: 10%;
+}
+
+/* Arrow button styling */
+.scroll-arrow {
+    background: #bd65e7;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background 0.3s;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent; /* Removes tap highlight on mobile */
+}
+
+.scroll-arrow:hover {
+    background: #54067a;
+}
+
+.scroll-arrow:active {
+    background: #45055f;
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 480px) {
+    .scroll-arrows {
+        right: -40px; /* Closer to the board on small screens */
+    }
+    .scroll-arrow {
+        width: 30px;
+        height: 30px;
+        font-size: 1em;
+    }
 }
