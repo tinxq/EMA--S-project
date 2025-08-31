@@ -865,5 +865,66 @@ h6 {
   
   button:hover {
     background-color: #45a049;
-  }
-  
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+  direction: rtl;
+}
+.character-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 480px; /* مناسب لشاشة الجوال */
+    margin: 0 auto;
+    gap: 15px;
+}
+
+/* صورة البنت */
+.character {
+    width: 150px;
+    max-width: 40%;
+    animation: float 3s ease-in-out infinite;
+    margin-bottom: 15%;
+}
+
+
+.board {
+    background: #fff;
+    margin-top: 15%;
+    margin-bottom: 0%;
+    border-radius: 15px;
+    padding: 15px 20px;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 100%;
+    height: 30vh; /* ياخذ أكثر من نصف الشاشة */
+    overflow-y: auto; /* تمرير للنصوص الطويلة */
+    text-align: right;
+}
+
+/* المثلث (البالون) */
+.board::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 15px 15px 0;
+    border-style: solid;
+    border-color: #fff transparent transparent;
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1));
+}
+
+.board::-webkit-scrollbar {
+    width: 6px;
+}
+.board::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 3px;
+}
