@@ -189,7 +189,7 @@ button.addEventListener('click', () => {
 });
 const tips = [
     "اهتمي ببيئة وأدوات الدراسة، كيف ستستمرين ببيئة مشتتَ!",
-    "للنجاح ضعي هدف بعيد المدى' اتقان اللغة'وهدف قصير المدى 'اكمل Round '",
+    "للنجاح ضعي هدف بعيد المدى اتقان اللغة و هدف قصير المدى اكمال راوند",
     "عاهدي نفسك بأن هذه المرة ستصلين لمرادك وانك ستكونين انتِ عقبة الظروف وليس العكس  بعد التسجيل ستجدين عقد التعهد الخاص بك في WhatsApp ",
     "و لتغذي عقلك بالمعلومات المهمه في اللغه تابعي صفحة الإنستقرام فيها كل ما يفيدك لكي تتقدمي ",
     "حاولي ان تجدي رفيقة لهذا الدرب",
@@ -237,4 +237,16 @@ function scrollBoard(boardId, amount) {
     });
   }
   
+  let current = 0;
+function spin(){
+  const wheel = document.getElementById('wheel');
+  const rand = Math.floor(Math.random()*7);
+  const slice = 360/7;
+  const safeMargin = slice * 0.25; 
+  const offset = slice/2 + (Math.random() * (slice - safeMargin*2) + safeMargin);
+  const stopAngle = 360 - (rand*slice + offset);
+  const turns = 5;
+  current += turns*360 + stopAngle;
+  wheel.style.transform = `rotate(${current}deg)`;
+}
   

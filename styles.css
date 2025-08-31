@@ -110,7 +110,6 @@ nav.links a:hover {
     max-width: 100%;
     width: clamp(200px, 50vw, 400px);
     height: auto;
-
 }
 
 /* بطاقات الشهادات */
@@ -140,7 +139,7 @@ nav.links a:hover {
     border-radius: 50%;
     margin-right: 12px;
     object-fit: cover;
-    border: 2px solid #d4c5e2; 
+    border: 2px solid #d4c5e2;
 }
 
 .profile h3 {
@@ -202,9 +201,6 @@ nav.links a:hover {
     margin-top: 0.5rem;
 }
 
-.read-more-btn:hover {
-    color: #6b5b95;
-}
 
 .stars {
     color: #d4c5e2;
@@ -261,7 +257,6 @@ nav.links a:hover {
     height: auto;
     border-radius: 16px;
     object-fit: cover;
-   
 }
 
 .us-card .text {
@@ -319,7 +314,6 @@ nav.links a:hover {
     border-radius: 16px;
     margin: 0 auto;
     object-fit: contain;
-   
 }
 
 .question-card audio {
@@ -446,7 +440,6 @@ nav.links a:hover {
     margin: 1.5rem 0;
     object-fit: contain;
     border-radius: 12px;
-   
 }
 
 button {
@@ -457,15 +450,8 @@ button {
     border-radius: 12px;
     cursor: pointer;
     font-size: 1rem;
-    transition: all 0.3s;
     font-weight: bold;
     box-shadow: 0 4px 8px rgba(156, 137, 184, 0.3);
-}
-
-button:hover {
-    background: linear-gradient(135deg, #8a71a9 0%, #7b6395 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(156, 137, 184, 0.4);
 }
 
 .success,
@@ -497,7 +483,6 @@ button:hover {
     height: auto;
     border-radius: 16px;
     object-fit: contain;
-
 }
 
 #contact {
@@ -531,14 +516,11 @@ button:hover {
     text-decoration: none;
     font-weight: bold;
     border-radius: 12px;
-    transition: all 0.3s;
     box-shadow: 0 4px 8px rgba(156, 137, 184, 0.3);
 }
 
 #contact a:hover {
     background: linear-gradient(135deg, #8a71a9 0%, #7b6395 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(156, 137, 184, 0.4);
 }
 
 .hidden {
@@ -584,7 +566,6 @@ button:hover {
     width: 30%;
     max-width: 120px;
     border-radius: 12px;
-  
 }
 
 .text-stress {
@@ -605,20 +586,20 @@ button:hover {
 }
 
 p {
-    font-size: 1rem; 
+    font-size: 1rem;
     line-height: 1.6;
 }
 
 .warning h4 {
     color: #c62828;
-    font-size: 1.1rem; 
+    font-size: 1.1rem;
     margin-bottom: 8px;
     font-weight: bold;
 }
 
 h6 {
     color: #6b5b95;
-    font-size: 1.4rem; 
+    font-size: 1.4rem;
     background: linear-gradient(135deg, #e6d7f2 0%, #d4c5e2 100%);
     padding: 12px 20px;
     border-radius: 12px;
@@ -651,7 +632,6 @@ h6 {
     max-width: 100%;
     height: auto;
     border-radius: 16px;
-    
 }
 
 .rounds p {
@@ -821,6 +801,7 @@ h6 {
         padding-top: 20px;
     }
 }
+
 .tip-box {
     width: 250px;
     height: 250px;
@@ -828,12 +809,12 @@ h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid #9c89b8; /* بنفسجي غامق */
+    border: 2px solid #9c89b8;
     border-radius: 12px;
-    background: linear-gradient(135deg, #f9f5ff 0%, #f0e6ff 100%); /* خلفية ناعمة */
+    background: linear-gradient(135deg, #f9f5ff 0%, #f0e6ff 100%);
     font-size: 18px;
     font-weight: bold;
-    color: #6b5b95; /* نص بنفسجي غامق */
+    color: #6b5b95;
     text-align: center;
     padding: 10px;
     box-shadow: 0 4px 12px rgba(156, 137, 184, 0.15);
@@ -844,45 +825,37 @@ h6 {
     margin-top: 35px;
 }
 
-  
-  .btn-group {
+.btn-group {
     margin-top: 0px;
     display: flex;
     justify-content: center;
     gap: 10px;
-  }
-  
-  button {
+}
+
+.btn-group button {
     padding: 8px 16px;
     font-size: 15px;
     border: none;
     border-radius: 8px;
-    background-color: #4CAF50;
+    background: linear-gradient(135deg, #9c89b8 0%, #8a71a9 100%);
     color: white;
     cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  margin: 0;
-  padding: 10px;
-  text-align: center;
-  direction: rtl;
 }
+
+.btn-group button:hover {
+    background: linear-gradient(135deg, #8a71a9 0%, #7b6395 100%);
+}
+
 .character-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 480px; 
+    max-width: 480px;
     margin: 0 auto;
     gap: 15px;
     text-decoration: dashed;
 }
-
 
 .character {
     width: 250px;
@@ -890,12 +863,11 @@ h6 {
     margin-bottom: 15%;
 }
 
-
 .board-container {
     position: relative;
     width: 100%;
-    max-width: 600px; 
-    margin: 0 auto; 
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .board {
@@ -936,12 +908,11 @@ h6 {
     border-radius: 3px;
 }
 
-/* Arrow container styling - outside the board */
 .scroll-arrows {
     position: absolute;
-    right: -50px; /* Positioned to the right of the board */
+    right: -50px;
     top: 50%;
-    transform: translateY(-50%); /* Vertically centered relative to the board */
+    transform: translateY(-50%);
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -949,10 +920,9 @@ h6 {
     margin-right: 10%;
 }
 
-/* Arrow button styling */
 .scroll-arrow {
-    background: #bd65e7;
-    color: #fff;
+    background: #be65e73a;
+    color: #411a43;
     border: none;
     border-radius: 50%;
     width: 35px;
@@ -964,21 +934,86 @@ h6 {
     font-size: 1.2em;
     transition: background 0.3s;
     user-select: none;
-    -webkit-tap-highlight-color: transparent; /* Removes tap highlight on mobile */
+    -webkit-tap-highlight-color: transparent;
 }
 
 .scroll-arrow:hover {
-    background: #54067a;
+    background: #53067a0f;
 }
 
 .scroll-arrow:active {
-    background: #45055f;
+    background:#53067a0f;
+}
+/* تعديل عجلة الحظ لتكون أصغر وفي النص */
+.wheel-wrap {
+    position: relative;
+    width: 300px; /* حجم أصغر */
+    height: 300px;
+    margin: 0 auto; /* توسيط أفقياً */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10%;
 }
 
-/* Adjust for smaller screens */
+.wheel {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(
+      #00c853 0deg 51.43deg,
+      #ff1744 51.43deg 102.86deg,
+      #ff80ab 102.86deg 154.29deg,
+      #2979ff 154.29deg 205.72deg,
+      #9c27b0 205.72deg 257.15deg,
+      #ffeb3b 257.15deg 308.58deg,
+      #ff9800 308.58deg 360deg
+    );
+    border: 8px solid gold;
+    box-shadow: 0 0 20px rgba(255,215,0,.7);
+    transition: transform 4s cubic-bezier(.17,.67,.32,1.35);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.center {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgb(255, 255, 255) 0%, #ffd700 30%, #b8860b 100%);
+    box-shadow: inset 0 0 10px rgba(255,255,255,.4), 0 0 15px rgb(255, 217, 0);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.pointer {
+    position: absolute;
+    top: -25px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 30px solid #fff; /* السهم لتحت */
+    filter: drop-shadow(0 0 5px #000);
+    z-index: 10;
+}
+.test-button{
+
+margin-bottom: 10%;
+margin-top: 10%;
+
+}
+
+/* تحسينات للشاشات الصغيرة */
 @media (max-width: 480px) {
     .scroll-arrows {
-        right: -40px; /* Closer to the board on small screens */
+        right: -40px;
     }
     .scroll-arrow {
         width: 30px;
