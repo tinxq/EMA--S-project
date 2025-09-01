@@ -230,17 +230,20 @@ function scrollBoard(boardId, amount) {
       behavior: "smooth",
     });
   }
-  
   let current = 0;
+let spun = false; 
+
 function spin(){
+  if (spun) return; 
+  spun = true; 
+
   const wheel = document.getElementById('wheel');
-  const rand = Math.floor(Math.random()*7);
-  const slice = 360/7;
+  const rand = Math.floor(Math.random() * 7);
+  const slice = 360 / 7;
   const safeMargin = slice * 0.25; 
-  const offset = slice/2 + (Math.random() * (slice - safeMargin*2) + safeMargin);
-  const stopAngle = 360 - (rand*slice + offset);
+  const offset = slice / 2 + (Math.random() * (slice - safeMargin * 2) + safeMargin);
+  const stopAngle = 360 - (rand * slice + offset);
   const turns = 5;
-  current += turns*360 + stopAngle;
+  current += turns * 360 + stopAngle;
   wheel.style.transform = `rotate(${current}deg)`;
 }
-  
