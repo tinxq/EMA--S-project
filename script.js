@@ -192,25 +192,19 @@ const tips = [
     "للنجاح ضعي هدف بعيد المدى اتقان اللغة و هدف قصير المدى اكمال راوند",
     "عاهدي نفسك بأن هذه المرة ستصلين لمرادك وانك ستكونين انتِ عقبة الظروف وليس العكس  بعد التسجيل ستجدين عقد التعهد الخاص بك في WhatsApp ",
     "و لتغذي عقلك بالمعلومات المهمه في اللغه تابعي صفحة الإنستقرام فيها كل ما يفيدك لكي تتقدمي ",
-    "حاولي ان تجدي رفيقة لهذا الدرب",
-    "//"
+    "حاولي ان تجدي رفيقة لهذا الدرب"
   ];
-  
-  let index = 0;
-  
+  let index =0;
   function showTip() {
-    const box = document.getElementById("tipBox");
-  
-    if (index < tips.length) {
-      box.innerText = tips[index];
-      index++;
-    } else if (index === tips.length) {
-      box.innerText = "شكرا";
-      index++;
-    } else {
-      box.innerText = 'شكرا';
-    }
+  const box = document.getElementById("tipBox");
+
+  if (index < tips.length) {
+    box.innerText = tips[index];
+    index++;
+  } else {
+    box.innerText = "شكرا";
   }
+}
   
   function returnToStart() {
     const box = document.getElementById("tipBox");
