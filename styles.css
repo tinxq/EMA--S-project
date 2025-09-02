@@ -1039,3 +1039,30 @@ background: conic-gradient(
         font-size: 1em;
     }
 }
+.skills-list {
+    list-style-type: none;
+    padding-right: 0;
+    font-family: Arial, sans-serif;
+    direction: rtl;
+    color: #333;
+    margin-top: 6%;
+  }
+  
+  .skills-list li {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    font-weight: bold;
+  }
+  
+  .ltr {
+    direction: ltr;
+    font-weight: bold;
+    color: #000080;
+  }
+  h3{
+ background-color: #a6dda9;
+padding: 18px;
+border-radius: 16px;
+border: solid #425a3d;
+
+  }
