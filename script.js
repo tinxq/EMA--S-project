@@ -98,19 +98,32 @@ function checkAnswer(index, selected) {
 }
 let finalLevel = "Pre"; 
 function nextLevel() {
-const levelName = levels[currentLevel];
-const correctAnswers = scores[levelName] || 0;
+  const levelName = levels[currentLevel];
+  const correctAnswers = scores[levelName] || 0;
 
-if (correctAnswers >= passThreshold) {  
-    finalLevel = levelName;
+  if (correctAnswers >= passThreshold) {  
+      finalLevel = levelName;
+  }
+
+  currentLevel++;
+
+  const nextBtn = document.getElementById("nextBtn");
+
+  if (currentLevel < levels.length) {
+      loadLevel();
+
+      // لو باقي لفل، يظل اسمه Next Level
+      nextBtn.textContent = "Next Level";
+      nextBtn.onclick = nextLevel;
+
+  } else {
+      // هنا خلصنا كل الليفلات → يتغير الزر لعرض النتيجة
+      nextBtn.textContent = "Show Result";
+      nextBtn.onclick = function() {
+          showFinalResult(finalLevel);
+      };
+  }
 }
-currentLevel++;
-if (currentLevel < levels.length) {
-    loadLevel();
-} else {
-    showFinalResult(finalLevel);
-}
-} 
 
 
 const levelInfo = {
