@@ -81,28 +81,21 @@ function loadLevel() {
 function checkAnswer(index, selected) {
     const item = questions[levels[currentLevel]][index];
     const feedback = document.getElementById(`feedback${index}`);
+
+    // نحذف إظهار "صح أو خطأ"
     if(selected === item.answer) {
-        feedback.textContent = "✔ Correct";
-        feedback.style.color = "green";
         scores[levels[currentLevel]] = scores[levels[currentLevel]] || 0;
 
         if(!feedback.dataset.correct) {
             scores[levels[currentLevel]]++;
             feedback.dataset.correct = "true";
         }
-    } else {
-        feedback.textContent = `❌ Wrong — correct: ${item.answer}`;
-        feedback.style.color = "red";
     }
 
     const allAnswered = questions[levels[currentLevel]].every((_, i) => {
         const f = document.getElementById(`feedback${i}`);
         return f.textContent !== "";
     });
-
-    //if(allAnswered) {
-    // document.getElementById("nextBtn").classList.remove("hidden");
-   // }
 }
 let finalLevel = "Pre"; 
 function nextLevel() {

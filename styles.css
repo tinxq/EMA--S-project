@@ -1059,7 +1059,7 @@ background: conic-gradient(
     font-weight: bold;
     color: #000080;
   }
-  h3{
+  .rounds  h3{
  background-color: #a6dda9;
 padding: 18px;
 border-radius: 16px;
