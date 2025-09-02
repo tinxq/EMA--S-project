@@ -1,4 +1,4 @@
-/* إعدادات عامة */
+
 * {
     margin: 0;
     padding: 0;
@@ -16,7 +16,6 @@ body {
     padding: 16px;
 }
 
-/* الهيدر */
 header {
     position: fixed;
     top: 0;
@@ -202,7 +201,7 @@ nav.links a:hover {
     margin-top: 0.5rem;
 }
 
-/* قسم من نحن */
+
 .about_us {
     padding: 30px 16px;
     background: linear-gradient(135deg, #f3ecff 0%, #e6d7f2 100%);
@@ -275,7 +274,7 @@ nav.links a:hover {
 }
 
 
-/* صفحة الاختبارات */
+
 .quiz-page {
     padding-top: 90px;
     max-width: 100%;
@@ -383,6 +382,31 @@ nav.links a:hover {
     transition: all 0.3s ease;
     border: 1px solid #d4c5e2;
 }
+.hidden {
+    display: none;
+  }
+  
+  .more-btn {
+    margin-top: 15px;
+    padding: 8px 16px;
+    border: none;
+    background: #743b92;
+    color: rgb(234, 226, 235);
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .more-btn:hover {
+    background: #834297;
+  }
+  
+  .extra-info {
+    margin-top: 15px;
+    background: #f9f9f9;
+    padding: 12px;
+    border-radius: 10px;
+    text-align: right;
+  }
 
 .result-box:hover {
     transform: translateY(-5px);
@@ -392,7 +416,7 @@ nav.links a:hover {
 .result-box h2,
 .result-box h1,
 .result-box h3 {
-    margin: 0.5rem 0;
+margin: 0.5rem 0;
 }
 
 .result-box h2 {
@@ -431,7 +455,10 @@ nav.links a:hover {
     object-fit: contain;
     border-radius: 12px;
 }
+.next-level{ 
+    text-align: center;
 
+}
 button {
     background: linear-gradient(135deg, #8a71a9 0%, #6b5b95 100%);
     color: white;

@@ -39,7 +39,7 @@ const questions = {
 "A2": [
     { q: "Dear John.What a day!!!It's started with me feeling a bit sick, but yet I went to work, but I found out I got fired from my work, I went back home and there's no food in my fridge, so here I'm sitting in my couch trying to understand My day.From. Ema.<br>How was Ema's day?", options: ["Outstanding", "Horrible", "Lovely"], answer: "Horrible" },
     { q: "Which sentence is correct", options: ["ema spent last vacation in London", "Ema spend last vacation in London", "Ema spent last vacation in London"], answer: "Ema spent last vacation in London" },
-    { q: "While you are standing next to the school, across from Jim's house, someone asks you how to get to Shop Road.Which of the following directions would be correct to guide them there?", img:"photos/map2.jpg", imgClass:"map-img", options: ["Take Flower Road north until you get to Plant Road, then turn left. Shop Road is straight ahead after the bus stop.", "Go up Park Street until you reach Market Road, then turn left. Shop Road will be on your right.", "Walk along School Road until you reach Tree Street, then turn right. Keep going past the playground and you’ll see Shop Road ahead on your left"], answer: "Walk along School Road until you reach Tree Street, then turn right. Keep going past the playground and you’ll see Shop Road ahead on your left" },
+    { q: "While you are standing next to the school, across from Jim's house, someone asks you how to get to Shop Road.Which of the following directions would be correct to guide them there?", img:"photos/map2.jpg", imgClass:"map-img", options: ["Take Flower Road north until you get to Plant Road, then turn left. Shop Road is straight ahead after the bus stop.", "Go up Park Street until you reach Market Road, then turn left. Shop Road will be on your right.", "Walk along School Road until you reach the playground, keep going straight past the playground until you face the Shops Road."], answer: "Walk along School Road until you reach the playground, keep going straight past the playground until you face the Shops Road." },
     { q: "Watch out! The car......", audio: "", options: ["Came", " Come", "Is coming"], answer: "Is coming" },
     { q: "Why she doesn't like frozen meals?", audio: "photos/A2.mp3", options: ["Not very healthy", "Because it is a pre-made food", "The taste is not really fresh"], answer: "The taste is not really fresh" }
 ],
@@ -60,7 +60,7 @@ const questions = {
 
 function loadLevel() {
     const quizDiv = document.getElementById("quiz");
-    quizDiv.innerHTML = `<h2>Level: ${levels[currentLevel]}</h2>`;
+    quizDiv.innerHTML = `<h2> ${levels[currentLevel]} Level</h2>`;
 
     questions[levels[currentLevel]].forEach((item, index) => {
         let html = `<div class="question-card">`;
@@ -82,7 +82,6 @@ function checkAnswer(index, selected) {
     const item = questions[levels[currentLevel]][index];
     const feedback = document.getElementById(`feedback${index}`);
 
-    // نحذف إظهار "صح أو خطأ"
     if(selected === item.answer) {
         scores[levels[currentLevel]] = scores[levels[currentLevel]] || 0;
 
@@ -157,20 +156,25 @@ const messageDiv = document.getElementById("message");
 messageDiv.classList.remove("hidden");
 
 const info = levelInfo[finalLevel];
-
-
 let html = `
 <div class="result-box">
-  <h2>Your Results</h2>
-  <h1>اكملت ِالإختبار انا حقا فخورة بك ويبدو انك فعلا مهتمة بتطوير لغتك والاستثمار في نفسك</h1>
-  <h3>Your level now is : ${finalLevel}</h3>
+  <h1 class="congrats-msg">🎉 اكملتِ الإختبار! أنا حقًا فخورة بك 👏</h1>
+  <h2>Your Level Now: <span class="level-now">${finalLevel}</span> level</h2>
   <img src="${info.img}" alt="${finalLevel}" class="result-img">
-  <p>${info.msg}</p>
-  <h3 class="next-level"> your next level will be : <strong>${info.next}</strong></h3>
-  <p>${info.msg1}</p>
+  <p class="level-msg">${info.msg}</p>
+  
+ 
+  
+  <!-- الرسالة الطويلة مخفية -->
+  <div id="extraInfo" class="extra-info hidden">
+   <h3 class="next-level"> Next Level: <strong>${info.next}</strong> level </h3>
+    <p>${info.msg1}</p>
+  </div>
+
+  <!-- زر المزيد -->
+  <button id="moreBtn" class="more-btn" onclick="toggleMore()">المزيد</button>
 </div>
 `;
-
 messageDiv.innerHTML = html; }
 
 document.querySelectorAll('.read-more-btn').forEach(button => {
@@ -245,3 +249,16 @@ document.querySelectorAll(".boxes .box1").forEach(box1 => {
       this.parentElement.classList.toggle("active");
     });
   });
+
+  function toggleMore() {
+    const extraInfo = document.getElementById("extraInfo");
+    const moreBtn = document.getElementById("moreBtn");
+  
+    extraInfo.classList.toggle("hidden");
+  
+    if (extraInfo.classList.contains("hidden")) {
+      moreBtn.textContent = "المزيد";
+    } else {
+      moreBtn.textContent = "إخفاء";
+    }
+  }
