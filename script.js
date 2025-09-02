@@ -247,3 +247,8 @@ function spin(){
   current += turns * 360 + stopAngle;
   wheel.style.transform = `rotate(${current}deg)`;
 }
+document.querySelectorAll(".boxes .box1").forEach(box1 => {
+    box1.addEventListener("click", function () {
+      this.parentElement.classList.toggle("active");
+    });
+  });

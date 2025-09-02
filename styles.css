@@ -1064,5 +1064,19 @@ background: conic-gradient(
 padding: 18px;
 border-radius: 16px;
 border: solid #425a3d;
-
+  }/* الافتراضي: الأحمر ظاهر */
+.box1 {
+    display: flex;
+  }
+  
+  /* الأخضر والسهم مخفيين */
+  .box,
+  .arrow {
+    display: none;
+  }
+  
+  /* عند التفعيل يظهروا */
+  .boxes.active .box,
+  .boxes.active .arrow {
+    display: flex;
   }
