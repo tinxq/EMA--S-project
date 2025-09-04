@@ -59,6 +59,9 @@ const questions = {
 ],};
 
 function loadLevel() {
+   
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
     const quizDiv = document.getElementById("quiz");
     quizDiv.innerHTML = `<h2> ${levels[currentLevel]} Level</h2>`;
 
