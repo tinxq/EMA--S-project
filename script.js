@@ -2,6 +2,7 @@ function startQuiz() {
     document.getElementById("homePage").classList.add("hidden");
     document.getElementById("aboutUs").classList.add("hidden");
     document.getElementById("quizPage").classList.remove("hidden");
+    window.scrollTo({ top: 0, behavior: 'auto' });
     loadLevel();
 }
 
@@ -9,11 +10,15 @@ function showHome() {
     document.getElementById("aboutUs").classList.add("hidden");
     document.getElementById("quizPage").classList.add("hidden");
     document.getElementById("homePage").classList.remove("hidden");
+
+     window.scrollTo({ top: 0, behavior: 'auto' });
 }
 function aboutUs() {
     document.getElementById("quizPage").classList.add("hidden");
     document.getElementById("homePage").classList.add("hidden");
     document.getElementById("aboutUs").classList.remove("hidden");
+
+   window.scrollTo({ top: 0, behavior: 'auto' });
 }
 
 const levels = [ "Pre", "A1", "A2", "B1", "B2"];
@@ -171,6 +176,8 @@ quizDiv.innerHTML = "";
 const messageDiv = document.getElementById("message");
 messageDiv.classList.remove("hidden");
 
+ window.scrollTo({ top: 0, behavior: 'auto' });
+
 const info = levelInfo[finalLevel];
 let html = `
 <div class="result-box">
@@ -201,7 +208,7 @@ button.addEventListener('click', () => {
 });
 });
 const tips = [
-    "اهتمي ببيئة وأدوات الدراسة، كيف ستستمرين ببيئة مشتتَ!",
+    "اهتمي ببيئة وأدوات الدراسة، كيف ستستمرين ببيئة مشتتة",
     "للنجاح ضعي هدف بعيد المدى اتقان اللغة و هدف قصير المدى اكمال راوند",
     "عاهدي نفسك بأن هذه المرة ستصلين لمرادك وانك ستكونين انتِ عقبة الظروف وليس العكس  بعد التسجيل ستجدين عقد التعهد الخاص بك في WhatsApp ",
     "و لتغذي عقلك بالمعلومات المهمه في اللغه تابعي صفحة الإنستقرام فيها كل ما يفيدك لكي تتقدمي ",
