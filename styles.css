@@ -223,16 +223,6 @@ nav.links a:hover {
 .section-title[dir="rtl"] {
     direction: rtl;
 }
-  .about-img img{
-  width: 100%;
-  max-width: 350px;
-  height: auto;
-  object-fit: cover;
-  border-radius: 12px;
-  display: block;
-  margin: 15px auto;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-}
 
 .us-card {
     display: flex;
@@ -1118,6 +1108,16 @@ border: solid #425a3d;
     display: flex;
   }
 
+  .about-img img{
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  margin: 15px auto;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
 
 
 p {
