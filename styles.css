@@ -223,6 +223,16 @@ nav.links a:hover {
 .section-title[dir="rtl"] {
     direction: rtl;
 }
+  .about-img img{
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  margin: 15px auto;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
 
 .us-card {
     display: flex;
@@ -1102,8 +1112,19 @@ border: solid #425a3d;
     display: none;
   }
   
-  /* عند التفعيل يظهروا */
+
   .boxes.active .box,
   .boxes.active .arrow {
     display: flex;
   }
+
+
+
+p {
+    direction: rtl;
+    text-align: right;
+}
+span {
+    direction: ltr;
+    display: inline;
+}
