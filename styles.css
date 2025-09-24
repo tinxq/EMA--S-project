@@ -456,6 +456,7 @@ margin: 0.5rem 0;
 }
 .next-level{ 
     text-align: center;
+   
 
 }
 button {
@@ -1126,4 +1127,14 @@ p {
 span {
     direction: ltr;
     display: inline;
+}
+.we{
+
+margin-top: 50px;
+
+}
+hr{
+
+margin-top: 30px;
+
 }
