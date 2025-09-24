@@ -2,7 +2,7 @@ function startQuiz() {
     document.getElementById("homePage").classList.add("hidden");
     document.getElementById("aboutUs").classList.add("hidden");
     document.getElementById("quizPage").classList.remove("hidden");
-    document.getElementById("offerPage").classList.add("hidden");
+    document.getElementById("offersPage").classList.add("hidden");
     window.scrollTo({ top: 0, behavior: 'auto' });
     loadLevel();
 }
@@ -102,6 +102,7 @@ function loadLevel() {
 
     document.getElementById("nextBtn").classList.remove("hidden");
 }
+
 function checkAnswer(index, selected) {
     const item = questions[levels[currentLevel]][index];
     const feedback = document.getElementById(`feedback${index}`);
