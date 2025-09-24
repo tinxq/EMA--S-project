@@ -2,14 +2,24 @@ function startQuiz() {
     document.getElementById("homePage").classList.add("hidden");
     document.getElementById("aboutUs").classList.add("hidden");
     document.getElementById("quizPage").classList.remove("hidden");
+    document.getElementById("offerPage").classList.add("hidden");
     window.scrollTo({ top: 0, behavior: 'auto' });
     loadLevel();
+}
+
+function offers() {
+    document.getElementById("aboutUs").classList.add("hidden");
+    document.getElementById("quizPage").classList.add("hidden");
+    document.getElementById("homePage").classList.add("hidden");
+    document.getElementById("offersPage").classList.remove("hidden");
+     window.scrollTo({ top: 0, behavior: 'auto' });
 }
 
 function showHome() {
     document.getElementById("aboutUs").classList.add("hidden");
     document.getElementById("quizPage").classList.add("hidden");
     document.getElementById("homePage").classList.remove("hidden");
+    document.getElementById("offersPage").classList.add("hidden");
 
      window.scrollTo({ top: 0, behavior: 'auto' });
 }
@@ -17,7 +27,7 @@ function aboutUs() {
     document.getElementById("quizPage").classList.add("hidden");
     document.getElementById("homePage").classList.add("hidden");
     document.getElementById("aboutUs").classList.remove("hidden");
-
+    document.getElementById("offersPage").classList.add("hidden");
    window.scrollTo({ top: 0, behavior: 'auto' });
 }
 
@@ -62,13 +72,20 @@ const questions = {
     { q: "What's the meaning of self - conscious?", audio: "photos/B2-2.mp3", options: ["Feeling awkward and shy", "Being confident", "It's part of your mind that's controls actions"], answer: "Feeling awkward and shy" },
     { q: "Sarah has always had a passion for the arts. She spends her weekends visiting galleries and attending live performances. Her friends often describe her as someone with a keen aesthetic sense.<br>What can we infer about Sarah’s personality?", options: ["She is uninterested in creative activities.", "She prefers outdoor sports over cultural events.", "She has an appreciation for aesthetics and culture."], answer: "She has an appreciation for aesthetics and culture." }
 ],};
+const messgLevelel = {
+    "Pre": ["في هذه المرحلة انتِ تعرفين كلمات قليلة جدًا. وصعب تكوين جملة كاملة. ولكن كل رحلة لها بداية لنتقدم."],
+    "A1": ["مبهر انتِ هنا الان تقدري تعرفي بنفسك وتستخدمي جمل بسيطة لكن تخذلك قلة المصطلحات في تكوين الجمل بسرعة."],
+    "A2": ["الان نحن نتطور جيدا  هنا تقدري  تتكلمي عن حياتك اليومية أو السفر ، لكن التعبير ما زال محدودًا وصعب التعامل مع المواقف المعقدة."],
+    "B1": ["نحن نتقدم بشكل ممتاز  تحكي عن تجاربك وآراؤك بوضوح أكبر، وتفهمي تتحدثي. تقدري تتكلمي عن حياتك اليومية، لكن يجب ان نتطور مصطلحاتك"],
+    "B2": ["وصلتي لهنا كم انتِ مذهلة ومثابرة 💕مستواك أقوى تفهمين تتحدثين أطول ونصوص عميقة، وتتكلمين بطلاقة جيدة، لكن تحتاجين كلمات أدق وثقة أكبر في المواقف الرسمية."]
+};
 
 function loadLevel() {
-   
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
     const quizDiv = document.getElementById("quiz");
-    quizDiv.innerHTML = `<h2> ${levels[currentLevel]} Level</h2>`;
+    quizDiv.innerHTML = `<h2> ${levels[currentLevel]} Level</h2>
+    <p>${messgLevelel[levels[currentLevel]][0]}</p>`;
 
     questions[levels[currentLevel]].forEach((item, index) => {
         let html = `<div class="question-card">`;
@@ -85,7 +102,6 @@ function loadLevel() {
 
     document.getElementById("nextBtn").classList.remove("hidden");
 }
-
 function checkAnswer(index, selected) {
     const item = questions[levels[currentLevel]][index];
     const feedback = document.getElementById(`feedback${index}`);
