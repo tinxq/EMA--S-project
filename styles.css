@@ -1119,7 +1119,7 @@ border: solid #425a3d;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
 }
 
-
+  
 p {
     direction: rtl;
     text-align: right;
@@ -1137,4 +1137,61 @@ hr{
 
 margin-top: 30px;
 
+}
+
+
+/* Booking Section */
+.booking-section {
+    max-width: 550px;
+    margin: 60px auto;
+    padding: 30px;
+    background: #fff5fa;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.booking-section h2 {
+    color: #c34b88;
+    margin-bottom: 15px;
+}
+
+.booking-section p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+#bookingForm {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#bookingForm label {
+    text-align: right;
+    font-weight: bold;
+}
+
+#bookingForm input,
+#bookingForm select {
+    padding: 12px;
+    border: 1px solid #e5b7cf;
+    border-radius: 10px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#bookingForm button {
+    padding: 14px;
+    background: #c34b88;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+#bookingForm button:hover {
+    background: #a63870;
 }

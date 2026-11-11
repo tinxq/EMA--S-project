@@ -302,3 +302,69 @@ document.querySelectorAll(".boxes .box1").forEach(box1 => {
       moreBtn.textContent = "إخفاء";
     }
   }
+
+
+
+const bookingForm = document.getElementById("bookingForm");
+const bookingMessage = document.getElementById("bookingMessage");
+
+if (bookingForm) {
+    bookingForm.addEventListener("submit", async function(event) {
+        event.preventDefault();
+
+        const submitButton = bookingForm.querySelector(
+            'button[type="submit"]'
+        );
+
+        const name = document.getElementById("studentName").value.trim();
+        const phone = document.getElementById("studentPhone").value.trim();
+        const level = document.getElementById("studentLevel").value;
+
+        const bookingData = {
+            name: name,
+            phone: phone,
+            level: level
+        };
+
+        bookingMessage.textContent = "جاري إرسال طلبك...";
+        submitButton.disabled = true;
+
+        try {
+            const response = await fetch(
+                "http://127.0.0.1:5001/booking",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(bookingData)
+                }
+            );
+
+            const data = await response.json();
+
+            if (!response.ok || !data.success) {
+                throw new Error(data.message || "Request failed");
+            }
+
+            bookingMessage.textContent =
+                "تم إرسال طلبك بنجاح! سنتواصل معك قريبًا 💗";
+
+            bookingMessage.style.color = "green";
+
+            bookingForm.reset();
+
+        } catch (error) {
+            console.error("Booking error:", error);
+
+            bookingMessage.textContent =
+                "تعذر إرسال الطلب. حاولي مرة أخرى.";
+
+            bookingMessage.style.color = "red";
+
+        } finally {
+            submitButton.disabled = false;
+        }
+    });
+}
+
